@@ -132,6 +132,8 @@ module.exports = {
     let addonName = stringUtil.dasherize(addonRawName);
     let addonNamespace = stringUtil.classify(addonRawName);
 
+    let language = options.language;
+    
     return {
       name,
       modulePrefix: name,
@@ -143,6 +145,7 @@ module.exports = {
       yarn: options.yarn,
       welcome: options.welcome,
       blueprint: 'addon',
+      language,
     };
   },
 

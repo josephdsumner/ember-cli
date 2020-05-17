@@ -1,0 +1,15 @@
+{
+  "configurations": [
+    {
+      "name": "mocha new-test --grep language",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${workspaceFolder}\\node_modules\\.bin\\mocha",
+      "runtimeArgs": [
+        "${workspaceFolder}\\tests\\acceptance\\new-test.js",
+        "--grep=language"
+      ],
+      "console": "integratedTerminal"
+    }
+  ]
+}

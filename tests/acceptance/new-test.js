@@ -102,9 +102,14 @@ describe('Acceptance: ember new', function () {
   });
 
   // [WIP] ember new --language flag
-  it('ember new --no-welcome skips installation of ember-welcome-page', async function () {
+  it('ember new without --language flag assigns lang attribute index.html to empty String', async function () {
     await ember(['new', 'foo', '--skip-npm', '--skip-bower', '--skip-git']);
     expect(file('app/index.html')).to.contain('<html lang=""');
+  });
+
+  it('ember new with --language flag assigns lang attribute index.html to input String', async function () {
+    await ember(['new', 'foo', '--skip-npm', '--skip-bower', '--skip-git', '--language=en-US']);
+    expect(file('app/index.html')).to.contain('<html lang="en-US"');
   });
 
   it('ember new npm blueprint with old version', async function () {

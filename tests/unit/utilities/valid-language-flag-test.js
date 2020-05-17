@@ -17,4 +17,24 @@ describe('lib/utilities/valid-language-flag', function () {
         expect(isValidLanguageFlag(languageFlag)).to.be.ok;
       });
     });
+
+    [
+      '',
+      '..-..',
+      '12-34',
+      ' en',
+      'en ',
+      'en-uk',
+      'en-UK',
+      'EN-uk',
+      'EN-UK',
+      'en-cockney',
+      
+
+    ].forEach((languageFlag) => {
+      it(`'${languageFlag}' is an invalid languageFlag`, function () {
+        expect(isValidLanguageFlag(languageFlag)).to.not.be.ok;
+      });
+    });
+  });
 });

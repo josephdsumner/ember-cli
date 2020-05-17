@@ -101,6 +101,12 @@ describe('Acceptance: ember new', function () {
     expect(file('app/templates/application.hbs')).to.contain('Welcome to Ember');
   });
 
+  // [WIP] ember new --language flag
+  it('ember new --no-welcome skips installation of ember-welcome-page', async function () {
+    await ember(['new', 'foo', '--skip-npm', '--skip-bower', '--skip-git']);
+    expect(file('app/index.html')).to.contain('<html lang=""');
+  });
+
   it('ember new npm blueprint with old version', async function () {
     await ember(['new', 'foo', '--blueprint', '@glimmer/blueprint@0.6.4', '--skip-npm', '--skip-bower']);
 

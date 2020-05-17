@@ -1,7 +1,7 @@
 {
   "configurations": [
     {
-      "name": "mocha new-test --grep language",
+      "name": "mocha acceptance new-test --grep language",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "${workspaceFolder}\\node_modules\\.bin\\mocha",
@@ -10,6 +10,16 @@
         "--grep=language"
       ],
       "console": "integratedTerminal"
-    }
+    },
+    {
+      "name": "mocha unit util valid-language-flag",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${workspaceFolder}\\node_modules\\.bin\\mocha",
+      "runtimeArgs": [
+        "${workspaceFolder}\\tests\\unit\\utilities\\valid-language-flag-test.js",
+      ],
+      "console": "integratedTerminal"
+    },
   ]
 }

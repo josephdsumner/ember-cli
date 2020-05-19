@@ -415,6 +415,14 @@ module.exports = {
           aliases: ['n'],
           key: 'name',
           required: false
+        },
+        {
+          name: 'language',
+          key: 'language',
+          default: '',
+          description: 'Sets the base human language of the application via index.html',
+          aliases: ['l', 'lang'],
+          required: false
         }
       ],
       anonymousOptions: ['<glob-pattern>']
@@ -519,6 +527,14 @@ module.exports = {
           name: 'directory',
           aliases: ['dir'],
           key: 'directory',
+          required: false
+        },
+        {
+          name: 'language',
+          key: 'language',
+          default: '',
+          description: 'Sets the base human language of the application via index.html',
+          aliases: ['l', 'lang'],
           required: false
         }
       ],

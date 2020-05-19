@@ -13,7 +13,7 @@ describe('lib/utilities/valid-language-flag', function () {
       'EN-gb',
       'EN-GB',
     ].forEach((languageFlag) => {
-      it(`'${languageFlag}' is a valid language code`, function () {
+      it(`'${languageFlag}' is a valid language flag`, function () {
         expect(isValidLanguageFlag(languageFlag)).to.be.ok;
       });
     });
@@ -29,10 +29,8 @@ describe('lib/utilities/valid-language-flag', function () {
       'EN-uk',
       'EN-UK',
       'en-cockney',
-      
-
     ].forEach((languageFlag) => {
-      it(`'${languageFlag}' is an invalid languageFlag`, function () {
+      it(`'${languageFlag}' is an invalid language flag`, function () {
         expect(isValidLanguageFlag(languageFlag)).to.not.be.ok;
       });
     });

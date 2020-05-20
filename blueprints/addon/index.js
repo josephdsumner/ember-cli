@@ -8,6 +8,7 @@ const stringUtil = require('ember-cli-string-utils');
 const uniq = require('ember-cli-lodash-subset').uniq;
 const SilentError = require('silent-error');
 const sortPackageJson = require('sort-package-json');
+const isValidLanguageFlag = require('../../lib/utilities/valid-language-flag');
 
 let date = new Date();
 
@@ -137,7 +138,8 @@ module.exports = {
     let addonName = stringUtil.dasherize(addonRawName);
     let addonNamespace = stringUtil.classify(addonRawName);
 
-    let language = options.language;
+    let language = isValidLanguageFlag(options.language);
+
     
     return {
       name,

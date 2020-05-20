@@ -2,6 +2,7 @@
 
 const stringUtil = require('ember-cli-string-utils');
 const chalk = require('chalk');
+const isValidLanguageFlag = require('../../lib/utilities/valid-language-flag');
 
 module.exports = {
   description: 'The default blueprint for ember-cli projects.',
@@ -21,7 +22,7 @@ module.exports = {
     let name = stringUtil.dasherize(rawName);
     let namespace = stringUtil.classify(rawName);
 
-    let language = options.language;
+    let language = isValidLanguageFlag(options.language);
 
     return {
       name,

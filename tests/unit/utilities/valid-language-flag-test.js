@@ -17,6 +17,7 @@ describe('lib/utilities/valid-language-flag', function () {
       it(`'${langArg}' is a valid language code; message is null`, function () {
         expect(getLangArgResult(langArg).isValidLangCode).to.be.ok;
         expect(getLangArgResult(langArg).message).to.be.null;
+        expect(getLangArgResult(langArg).result).to.be.a.string;
       });
     });
   });
@@ -38,6 +39,7 @@ describe('lib/utilities/valid-language-flag', function () {
         expect(getLangArgResult(langArg).isValidLangCode).to.not.be.ok;
         expect(getLangArgResult(langArg).message).to.be.ok;
         expect(getLangArgResult(langArg).message).to.not.include('set the app programming language');
+        expect(getLangArgResult(langArg).result).to.be.false;
       });
     });
 
@@ -55,6 +57,7 @@ describe('lib/utilities/valid-language-flag', function () {
         expect(getLangArgResult(langArg).isValidLangCode).to.not.be.ok;
         expect(getLangArgResult(langArg).message).to.be.ok;
         expect(getLangArgResult(langArg).message).to.include('set the app programming language');
+        expect(getLangArgResult(langArg).result).to.be.false;
       });
     });
   });

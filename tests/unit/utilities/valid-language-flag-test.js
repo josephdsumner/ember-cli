@@ -17,7 +17,7 @@ describe('lib/utilities/valid-language-flag', function () {
       it(`'${langArg}' is a valid language code; message is null`, function () {
         expect(getLangArgResult(langArg).isValidLangCode).to.be.ok;
         expect(getLangArgResult(langArg).message).to.be.null;
-        expect(getLangArgResult(langArg).result).to.be.a.string;
+        expect(getLangArgResult(langArg).result).to.equal(langArg);
       });
     });
   });

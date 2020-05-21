@@ -139,9 +139,7 @@ module.exports = {
     let addonNamespace = stringUtil.classify(addonRawName);
 
     let languageInfo = getLangArgResult(options.language);
-    let language = languageInfo.isValidLangCode
-      ? languageInfo.langArgValue
-      : languageInfo.isValidLangCode;
+    let language = languageInfo.result;
     
     return {
       name,
@@ -154,7 +152,10 @@ module.exports = {
       yarn: options.yarn,
       welcome: options.welcome,
       blueprint: 'addon',
-      language,
+
+      languageInfo,
+      language
+
     };
   },
 

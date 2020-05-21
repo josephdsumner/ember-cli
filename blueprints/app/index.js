@@ -23,9 +23,7 @@ module.exports = {
     let namespace = stringUtil.classify(rawName);
 
     let languageInfo = getLangArgResult(options.language);
-    let language = languageInfo.isValidLangCode
-      ? languageInfo.langArgValue
-      : languageInfo.isValidLangCode;
+    let language = languageInfo.result;
 
 
 
@@ -37,6 +35,8 @@ module.exports = {
       yarn: options.yarn,
       welcome: options.welcome,
       blueprint: 'app',
+
+      languageInfo,
       language,
     };
   },

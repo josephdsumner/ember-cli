@@ -1,9 +1,10 @@
 'use-strict';
 
-const isValidLanguageFlag = require('../../../lib/utilities/valid-language-flag');
+const getLangArgResult = require('../../../lib/utilities/valid-language-flag');
 const expect = require('chai').expect;
 
 describe('lib/utilities/valid-language-flag', function () {
+
   describe('Valid Language Flags', function () {
     [
       'en',
@@ -12,12 +13,15 @@ describe('lib/utilities/valid-language-flag', function () {
       'EN',
       'EN-gb',
       'EN-GB',
-    ].forEach((languageFlag) => {
-      it(`'${languageFlag}' is a valid language flag`, function () {
-        expect(isValidLanguageFlag(languageFlag)).to.be.ok;
+    ].forEach((langArg) => {
+      it(`'${langArg}' is a valid language code; message is null`, function () {
+        expect(getLangArgResult(langArg).isValidLangCode).to.be.ok;
+        expect(getLangArgResult(langArg).message).to.be.null;
       });
     });
+  });
 
+  describe('Invalid Language Flags', function ()  {
     [
       '',
       '..-..',
@@ -29,9 +33,11 @@ describe('lib/utilities/valid-language-flag', function () {
       'EN-uk',
       'EN-UK',
       'en-cockney',
-    ].forEach((languageFlag) => {
-      it(`'${languageFlag}' is an invalid language flag`, function () {
-        expect(isValidLanguageFlag(languageFlag)).to.not.be.ok;
+    ].forEach((langArg) => {
+      it(`'${langArg}' is an invalid language argument; unrelated to setting app programming language`, function () {
+        expect(getLangArgResult(langArg).isValidLangCode).to.not.be.ok;
+        expect(getLangArgResult(langArg).message).to.be.ok;
+        expect(getLangArgResult(langArg).message).to.not.include('set app programming language');
       });
     });
   });

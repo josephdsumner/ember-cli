@@ -34,10 +34,27 @@ describe('lib/utilities/valid-language-flag', function () {
       'EN-UK',
       'en-cockney',
     ].forEach((langArg) => {
-      it(`'${langArg}' is an invalid language argument; unrelated to setting app programming language`, function () {
+      it(`'${langArg}' is an invalid language argument; not related to attempt to set app programming language`, function () {
         expect(getLangArgResult(langArg).isValidLangCode).to.not.be.ok;
         expect(getLangArgResult(langArg).message).to.be.ok;
-        expect(getLangArgResult(langArg).message).to.not.include('set app programming language');
+        expect(getLangArgResult(langArg).message).to.not.include('set the app programming language');
+      });
+    });
+
+    [
+      'typescript',
+      'javascript',
+      'html',
+      'glimmer',
+      'emcas',
+      'es6',
+      'node',
+      'handlebars'
+    ].forEach((langArg) => {
+      it(`'${langArg}' is an invalid language argument; possibly an attempt to set app programming language`, function () {
+        expect(getLangArgResult(langArg).isValidLangCode).to.not.be.ok;
+        expect(getLangArgResult(langArg).message).to.be.ok;
+        expect(getLangArgResult(langArg).message).to.include('set the app programming language');
       });
     });
   });

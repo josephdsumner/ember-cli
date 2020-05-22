@@ -102,37 +102,59 @@ describe('Acceptance: ember new', function () {
   });
 
   // [WIP] ember new --language flag
-  it('ember new without --language flag has no lang attribute index.html', async function () {
+  // -------------------------------
+  // Good: Default
+  it('ember new without --language flag (default) has no lang attribute in index.html', async function () {
     await ember(['new', 'foo', '--skip-npm', '--skip-bower', '--skip-git']);
     expect(file('app/index.html')).to.contain('<html>');
   });
 
-  it('ember new with --language flag assigns lang attribute index.html to input String', async function () {
+  // Good: Correct Usage
+  it('ember new with --language flag and valid code assigns lang attribute in index.html', async function () {
     await ember(['new', 'foo', '--skip-npm', '--skip-bower', '--skip-git', '--language=en-US']);
     expect(file('app/index.html')).to.contain('<html lang="en-US">');
   });
 
-  it('ember new with --language flag and invalid code has no lang attribute index.html', async function () {
-    await ember(['new', 'foo', '--skip-npm', '--skip-bower', '--skip-git', '--language=en-UK']);
-    expect(file('app/index.html')).to.contain('<html>');
+  // Misuse: possibly an attempt to set app programming language
+  it('ember new with --language flag and programming language fails with an error message', async function () {
+    let err = await expect(ember(['new', 'foo', '--skip-npm', '--skip-bower', '--skip-git', '--language=typescript'])).to.be.rejected;
+    expect(err.name).to.equal('SilentError');
+    expect(err.message).to.be.ok;
+    expect(err.message).to.include('set the app programming language');
+    expect(err.message).to.include('typescript');
+    expect(err.message).to.not.include('ember-cli command option');
   });
 
-  /* FIXME: using the --language flag without specification absorbs next argument as the input,
-            e.g., `<html lang="--skip-bower">` or <html lang="--disable-analytics"> 
-            Desired behavior is to default to empty string, i.e., `<html lang="">`
-  */
+  // Misuse: No specification + declared option
+  it('ember new with --language flag but no specification fails with an error message; absorbs ember-cli option (declared)', async function () {
+    let err = await expect(ember(['new', 'foo', '--skip-npm', '--skip-bower', '--language', '--skip-git'])).to.be.rejected;
+    expect(err.name).to.equal('SilentError');
+    expect(err.message).to.be.ok;
+    expect(err.message).to.not.include('set the app programming language');
+    expect(err.message).to.include('ember-cli command option');
+    expect(err.message).to.include('--skip-git');
 
-  // Fails verifying --disable-analytics, need to fix absorption problem
-  it('ember new with --language flag but no specification has no lang attribute in index.html', async function () {
-    await ember(['new', 'foo', '--skip-npm', '--skip-bower', '--skip-git', '--language']);
-    expect(file('app/index.html')).to.contain('<html>');
   });  
 
-  // Fails verifying --skip-git, need to fix absorbption problem
-  it('ember new with --language flag but no specification has no lang attribute in index.html', async function () {
-    await ember(['new', 'foo', '--skip-npm', '--skip-bower', '--language', '--skip-git']);
-    expect(file('app/index.html')).to.contain('<html>');
+  // Misuse: No specification + hidden option
+  it('ember new with --language flag but no specification fails with an error message; absorbs appended ember-cli option (hidden)', async function () {
+    let err = await expect(ember(['new', 'foo', '--skip-npm', '--skip-bower', '--skip-git', '--language'])).to.be.rejected;
+    expect(err.name).to.equal('SilentError');
+    expect(err.message).to.be.ok;
+    expect(err.message).to.not.include('set the app programming language');
+    expect(err.message).to.include('ember-cli command option');
+    expect(err.message).to.include('--disable-analytics');
   });  
+  
+  // Misuse: Invalid Country Code
+  it('ember new with --language flag and invalid code fails with an error message', async function () {
+    let err = await expect(ember(['new', 'foo', '--skip-npm', '--skip-bower', '--skip-git', '--language=en-UK'])).to.be.rejected;
+    expect(err.name).to.equal('SilentError');
+    expect(err.message).to.be.ok;
+    expect(err.message).to.not.include('set the app programming language');
+    expect(err.message).to.not.include('ember-cli command option');
+  });
+
 
   it('ember new npm blueprint with old version', async function () {
     await ember(['new', 'foo', '--blueprint', '@glimmer/blueprint@0.6.4', '--skip-npm', '--skip-bower']);

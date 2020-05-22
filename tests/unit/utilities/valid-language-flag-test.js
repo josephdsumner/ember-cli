@@ -60,5 +60,35 @@ describe('lib/utilities/valid-language-flag', function () {
         expect(getLangArgResult(langArg).result).to.be.false;
       });
     });
+
+    [
+      '--disable-analytics',
+      '--dry-run',
+      '-d',
+      '--verbose',
+      '-v',
+      '--blueprint',
+      '-b',
+      '--skip-npm',
+      '-sn',
+      '--skip-bower',
+      '-sb',
+      '--welcome',
+      '--no-welcome',
+      '--yarn',
+      '--name',
+      '--skip-git',
+      '-sg',
+      '--directory',
+      '-dir'
+    ].forEach((langArg) => {
+      it(`'${langArg}' is an invalid language argument; possibly an absorbed ember-cli command option`, function () {
+        expect(getLangArgResult(langArg).isValidLangCode).to.not.be.ok;
+        expect(getLangArgResult(langArg).message).to.be.ok;
+        expect(getLangArgResult(langArg).message).to.include('ember-cli command option');
+        expect(getLangArgResult(langArg).result).to.be.false;
+      });
+    });
+
   });
 });

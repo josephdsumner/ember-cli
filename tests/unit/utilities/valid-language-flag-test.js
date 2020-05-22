@@ -22,7 +22,7 @@ describe('lib/utilities/valid-language-flag', function () {
     });
   });
 
-  describe('Invalid Language Flags', function ()  {
+  describe('Invalid Language Flags: Misc.', function ()  {
     [
       '',
       '..-..',
@@ -42,7 +42,9 @@ describe('lib/utilities/valid-language-flag', function () {
         expect(getLangArgResult(langArg).result).to.be.false;
       });
     });
+  });
 
+  describe('Invalid Language Flags, Misuse case: Programming Languages', function ()  {
     [
       'typescript',
       'javascript',
@@ -60,9 +62,12 @@ describe('lib/utilities/valid-language-flag', function () {
         expect(getLangArgResult(langArg).result).to.be.false;
       });
     });
+  });
 
+  describe('Invalid Language Flags, Misuse case: ember-cli `new` and `init` options / aliases', function ()  {
     [
       '--disable-analytics',
+      '--watcher=node',
       '--dry-run',
       '-d',
       '--verbose',
@@ -89,6 +94,6 @@ describe('lib/utilities/valid-language-flag', function () {
         expect(getLangArgResult(langArg).result).to.be.false;
       });
     });
-
   });
+
 });

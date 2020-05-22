@@ -35,10 +35,11 @@ describe('lib/utilities/valid-language-flag', function () {
       'EN-UK',
       'en-cockney',
     ].forEach((langArg) => {
-      it(`'${langArg}' is an invalid language argument; not related to attempt to set app programming language`, function () {
+      it(`'${langArg}' is an invalid language argument; not related misuse cases`, function () {
         expect(getLangArgResult(langArg).isValidLangCode).to.not.be.ok;
         expect(getLangArgResult(langArg).message).to.be.ok;
         expect(getLangArgResult(langArg).message).to.not.include('set the app programming language');
+        expect(getLangArgResult(langArg).message).to.not.include('ember-cli command option');
         expect(getLangArgResult(langArg).result).to.be.false;
       });
     });

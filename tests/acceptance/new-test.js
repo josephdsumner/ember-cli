@@ -121,10 +121,18 @@ describe('Acceptance: ember new', function () {
             e.g., `<html lang="--skip-bower">` or <html lang="--disable-analytics"> 
             Desired behavior is to default to empty string, i.e., `<html lang="">`
   */
-  // it('ember new with --language flag but no specification assigns lang attribute index.html to empty String', async function () {
-  //   await ember(['new', 'foo', '--skip-npm', '--skip-bower', '--skip-git', '--language']);
-  //   expect(file('app/index.html')).to.contain('<html>');
-  // });  
+
+  // Fails verifying --disable-analytics, need to fix absorption problem
+  it('ember new with --language flag but no specification has no lang attribute in index.html', async function () {
+    await ember(['new', 'foo', '--skip-npm', '--skip-bower', '--skip-git', '--language']);
+    expect(file('app/index.html')).to.contain('<html>');
+  });  
+
+  // Fails verifying --skip-git, need to fix absorbption problem
+  it('ember new with --language flag but no specification has no lang attribute in index.html', async function () {
+    await ember(['new', 'foo', '--skip-npm', '--skip-bower', '--language', '--skip-git']);
+    expect(file('app/index.html')).to.contain('<html>');
+  });  
 
   it('ember new npm blueprint with old version', async function () {
     await ember(['new', 'foo', '--blueprint', '@glimmer/blueprint@0.6.4', '--skip-npm', '--skip-bower']);

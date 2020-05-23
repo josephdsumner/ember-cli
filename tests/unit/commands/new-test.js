@@ -110,14 +110,40 @@ describe('new command', function () {
   // [WIP] ember new --language flag
   // -------------------------------
   // Good: Default
-  it('ember new without --language flag (default) has no lang attribute in index.html', async function () {
-    let res = await expect(command.validateAndRun(['foo', '--skip-npm', '--skip-bower', '--skip-git'])).to.be.ok;
+  it('ember new without --language flag (default) has no error message before run; blueprint has language key of empty String', async function () {
+    command.tasks.CreateAndStepIntoDirectory = Task.extend({
+      run() {
+        return Promise.resolve();
+      },
+    });
+    command.commands.Init = Command.extend({
+      run(commandOptions) {
+        expect(commandOptions).to.contain.keys('language');
+        expect(commandOptions.language).to.equal('');
+        return Promise.resolve('Called run');
+      },
+    });
+    let reason = await command.validateAndRun(['foo', '--skip-npm', '--skip-bower', '--skip-git']);
+    expect(reason).to.equal('Called run');
   });
 
-  // // Good: Correct Usage
-  // it('ember new with --language flag and valid code assigns lang attribute in index.html', async function () {
-  //   let res = await expect(command.validateAndRun(['foo', '--skip-npm', '--skip-bower', '--skip-git', '--language=en-US'])).to.be.fulfiled;
-  // });
+  // Good: Correct Usage
+  it('ember new with --language flag and valid code has no error message before run; blueprint has language key of input String', async function () {
+    command.tasks.CreateAndStepIntoDirectory = Task.extend({
+      run() {
+        return Promise.resolve();
+      },
+    });
+    command.commands.Init = Command.extend({
+      run(commandOptions) {
+        expect(commandOptions).to.contain.keys('language');
+        expect(commandOptions.language).to.equal('en-US');
+        return Promise.resolve('Called run');
+      },
+    });
+    let reason = await command.validateAndRun(['foo', '--skip-npm', '--skip-bower', '--skip-git', '--language=en-US']);
+    expect(reason).to.equal('Called run');
+  });
 
   // Misuse: possibly an attempt to set app programming language
   it('ember new with --language flag and programming language fails with an error message', async function () {

@@ -32,5 +32,15 @@
       ],
       "console": "integratedTerminal"
     },
+    {
+      "name": "mocha acceptance help-test",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${workspaceFolder}\\node_modules\\.bin\\mocha",
+      "runtimeArgs": [
+        "${workspaceFolder}\\tests\\acceptance\\help-test.js"
+      ],
+      "console": "integratedTerminal"
+    },
   ]
 }

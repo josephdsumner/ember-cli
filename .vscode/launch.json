@@ -42,5 +42,25 @@
       ],
       "console": "integratedTerminal"
     },
+    {
+      "name": "mocha unit new",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${workspaceFolder}\\node_modules\\.bin\\mocha",
+      "runtimeArgs": [
+        "${workspaceFolder}\\tests\\unit\\commands\\new-test.js"
+      ],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "mocha unit init",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${workspaceFolder}\\node_modules\\.bin\\mocha",
+      "runtimeArgs": [
+        "${workspaceFolder}\\tests\\unit\\commands\\init-test.js"
+      ],
+      "console": "integratedTerminal"
+    },
   ]
 }

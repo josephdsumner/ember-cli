@@ -38,6 +38,8 @@ describe('lib/utilities/valid-language-flag', function () {
       it(`'${langArg}' is an invalid language argument; not related misuse cases`, function () {
         expect(getLangArgResult(langArg).isValidLangCode).to.not.be.ok;
         expect(getLangArgResult(langArg).message).to.be.ok;
+        expect(getLangArgResult(langArg).message).to.include('An error with the \`--language\` flag returned the following message:');
+        expect(getLangArgResult(langArg).message).to.include('Information about using the \`--language\` flag:');
         expect(getLangArgResult(langArg).message).to.not.include('set the app programming language');
         expect(getLangArgResult(langArg).message).to.not.include('ember-cli command option');
         expect(getLangArgResult(langArg).result).to.be.false;
@@ -59,6 +61,8 @@ describe('lib/utilities/valid-language-flag', function () {
       it(`'${langArg}' is an invalid language argument; possibly an attempt to set app programming language`, function () {
         expect(getLangArgResult(langArg).isValidLangCode).to.not.be.ok;
         expect(getLangArgResult(langArg).message).to.be.ok;
+        expect(getLangArgResult(langArg).message).to.include('An error with the \`--language\` flag returned the following message:');
+        expect(getLangArgResult(langArg).message).to.include('Information about using the \`--language\` flag:');
         expect(getLangArgResult(langArg).message).to.include('set the app programming language');
         expect(getLangArgResult(langArg).result).to.be.false;
       });
@@ -91,6 +95,8 @@ describe('lib/utilities/valid-language-flag', function () {
       it(`'${langArg}' is an invalid language argument; possibly an absorbed ember-cli command option`, function () {
         expect(getLangArgResult(langArg).isValidLangCode).to.not.be.ok;
         expect(getLangArgResult(langArg).message).to.be.ok;
+        expect(getLangArgResult(langArg).message).to.include('An error with the \`--language\` flag returned the following message:');
+        expect(getLangArgResult(langArg).message).to.include('Information about using the \`--language\` flag:');
         expect(getLangArgResult(langArg).message).to.include('ember-cli command option');
         expect(getLangArgResult(langArg).result).to.be.false;
       });

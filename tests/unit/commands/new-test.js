@@ -150,6 +150,8 @@ describe('new command', function () {
     let err = await expect(command.validateAndRun(['foo', '--skip-npm', '--skip-bower', '--skip-git', '--language=typescript'])).to.be.rejected;
     expect(err.name).to.equal('SilentError');
     expect(err.message).to.be.ok;
+    expect(err.message).to.include('An error with the \`--language\` flag returned the following message:');
+    expect(err.message).to.include('Information about using the \`--language\` flag:');
     expect(err.message).to.include('set the app programming language');
     expect(err.message).to.include('typescript');
     expect(err.message).to.not.include('ember-cli command option');
@@ -160,6 +162,8 @@ describe('new command', function () {
     let err = await expect(command.validateAndRun(['foo', '--skip-npm', '--skip-bower', '--language', '--skip-git'])).to.be.rejected;
     expect(err.name).to.equal('SilentError');
     expect(err.message).to.be.ok;
+    expect(err.message).to.include('An error with the \`--language\` flag returned the following message:');
+    expect(err.message).to.include('Information about using the \`--language\` flag:');
     expect(err.message).to.not.include('set the app programming language');
     expect(err.message).to.include('ember-cli command option');
     expect(err.message).to.include('--skip-git');
@@ -181,6 +185,8 @@ describe('new command', function () {
     let err = await expect(command.validateAndRun(['foo', '--skip-npm', '--skip-bower', '--skip-git', '--language=en-UK'])).to.be.rejected;
     expect(err.name).to.equal('SilentError');
     expect(err.message).to.be.ok;
+    expect(err.message).to.include('An error with the \`--language\` flag returned the following message:');
+    expect(err.message).to.include('Information about using the \`--language\` flag:');
     expect(err.message).to.not.include('set the app programming language');
     expect(err.message).to.not.include('ember-cli command option');
   });

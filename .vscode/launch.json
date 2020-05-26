@@ -1,12 +1,12 @@
 {
   "configurations": [
     {
-      "name": "mocha unit util valid-language-flag",
+      "name": "mocha unit util valid-lang-flag",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "${workspaceFolder}\\node_modules\\.bin\\mocha",
       "runtimeArgs": [
-        "${workspaceFolder}\\tests\\unit\\utilities\\valid-language-flag-test.js",
+        "${workspaceFolder}\\tests\\unit\\utilities\\valid-lang-flag-test.js",
       ],
       "console": "integratedTerminal"
     },

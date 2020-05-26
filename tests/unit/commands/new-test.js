@@ -110,7 +110,7 @@ describe('new command', function () {
   // [WIP] ember new --lang flag
   // -------------------------------
   // Good: Default
-  it('ember new without --lang flag (default) has no error message before run; blueprint has language key of empty String', async function () {
+  it('ember new without --lang flag (default) has no error message before run; blueprint has lang key of empty String', async function () {
     command.tasks.CreateAndStepIntoDirectory = Task.extend({
       run() {
         return Promise.resolve();
@@ -118,8 +118,8 @@ describe('new command', function () {
     });
     command.commands.Init = Command.extend({
       run(commandOptions) {
-        expect(commandOptions).to.contain.keys('language');
-        expect(commandOptions.language).to.equal('');
+        expect(commandOptions).to.contain.keys('lang');
+        expect(commandOptions.lang).to.equal('');
         return Promise.resolve('Called run');
       },
     });
@@ -128,7 +128,7 @@ describe('new command', function () {
   });
 
   // Good: Correct Usage
-  it('ember new with --lang flag and valid code has no error message before run; blueprint has language key of input String', async function () {
+  it('ember new with --lang flag and valid code has no error message before run; blueprint has lang key of input String', async function () {
     command.tasks.CreateAndStepIntoDirectory = Task.extend({
       run() {
         return Promise.resolve();
@@ -136,8 +136,8 @@ describe('new command', function () {
     });
     command.commands.Init = Command.extend({
       run(commandOptions) {
-        expect(commandOptions).to.contain.keys('language');
-        expect(commandOptions.language).to.equal('en-US');
+        expect(commandOptions).to.contain.keys('lang');
+        expect(commandOptions.lang).to.equal('en-US');
         return Promise.resolve('Called run');
       },
     });

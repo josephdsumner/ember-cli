@@ -11,24 +11,24 @@
       "console": "integratedTerminal"
     },
     {
-      "name": "mocha acceptance new-test --grep language",
+      "name": "mocha acceptance new-test --grep lang",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "${workspaceFolder}\\node_modules\\.bin\\mocha",
       "runtimeArgs": [
         "${workspaceFolder}\\tests\\acceptance\\new-test.js",
-        "--grep=language"
+        "--grep=lang"
       ],
       "console": "integratedTerminal"
     },
     {
-      "name": "mocha acceptance init-test --grep language",
+      "name": "mocha acceptance init-test --grep lang",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "${workspaceFolder}\\node_modules\\.bin\\mocha",
       "runtimeArgs": [
         "${workspaceFolder}\\tests\\acceptance\\init-test.js",
-        "--grep=language"
+        "--grep=lang"
       ],
       "console": "integratedTerminal"
     },
@@ -39,7 +39,7 @@
       "runtimeExecutable": "${workspaceFolder}\\node_modules\\.bin\\mocha",
       "runtimeArgs": [
         "${workspaceFolder}\\tests\\acceptance\\addon-dummy-generate-test.js",
-        "--grep=language"
+        "--grep=lang"
       ],
       "console": "integratedTerminal"
     },
@@ -54,13 +54,13 @@
       "console": "integratedTerminal"
     },
     {
-      "name": "mocha acceptance --grep language",
+      "name": "mocha acceptance --grep lang",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "${workspaceFolder}\\node_modules\\.bin\\mocha",
       "runtimeArgs": [
         "${workspaceFolder}\\tests\\acceptance\\*-test.js",
-        "--grep=language"
+        "--grep=lang"
       ],
       "console": "integratedTerminal"
     },

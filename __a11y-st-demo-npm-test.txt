@@ -1,0 +1,1993 @@
+
+> ember-cli@3.19.0-beta.1 test C:\__DEV\ember-new-lang-rfc\ember-cli
+> node --unhandled-rejections=strict tests/runner
+
+
+
+  YUIDoc
+    √ parses without warnings (4232ms)
+
+  Acceptance: ember generate in-addon-dummy
+    √ dummy blueprint foo (2425ms)
+    √ dummy blueprint foo/bar (1353ms)
+    √ dummy http-mock foo (1357ms)
+    √ dummy http-mock foo-bar (1251ms)
+    √ dummy http-proxy foo (1281ms)
+    √ dummy server (1246ms)
+    √ ember addon without --lang flag (default) has no lang attribute in dummy index.html (340ms)
+    √ ember addon with --lang flag and valid code assigns lang attribute in index.html (341ms)
+    √ ember addon with --lang flag and programming language fails with an error message
+    √ ember addon with --lang flag but no specification fails with an error message; absorbs ember-cli option (declared)
+    √ ember addon with --lang flag but no specification fails with an error message; absorbs appended ember-cli option (hidden)
+    √ ember addon with --lang flag and invalid code fails with an error message
+
+  Acceptance: ember generate in-addon
+    √ in-addon addon-import cannot be called directly (1016ms)
+    √ runs the `addon-import` blueprint from a classic addon (1290ms)
+    √ runs a custom "*-addon" blueprint from a classic addon (1270ms)
+    √ in-addon blueprint foo (1267ms)
+    √ in-addon blueprint foo/bar (1250ms)
+    √ in-addon http-mock foo (1236ms)
+    √ in-addon http-mock foo-bar (1236ms)
+    √ in-addon http-proxy foo (1262ms)
+    √ in-addon server (1232ms)
+
+  Acceptance: ember destroy
+    √ blueprint foo (2126ms)
+    √ blueprint foo/bar (2219ms)
+    √ http-mock foo (2210ms)
+    √ http-proxy foo (2143ms)
+    √ deletes files generated using blueprints from the project directory (2147ms)
+    √ correctly identifies the root of the project (2172ms)
+    √ http-mock <name> does not remove server/ (3045ms)
+
+  Acceptance: ember generate
+    √ blueprint foo (1215ms)
+    √ blueprint foo/bar (1213ms)
+    √ http-mock foo (1202ms)
+    √ http-mock foo-bar (1203ms)
+    √ http-proxy foo (1217ms)
+    √ uses blueprints from the project directory (1242ms)
+    √ allows custom blueprints to override built-ins (1198ms)
+    √ passes custom cli arguments to blueprint options (1247ms)
+    √ correctly identifies the root of the project (1191ms)
+    √ server (1191ms)
+    √ lib (1204ms)
+    √ custom blueprint availableOptions (2147ms)
+
+  Acceptance: ember help
+    √ works
+    √ prints addon commands
+    √ prints single addon commands
+    √ prints all blueprints
+    √ prints helpful message for unknown command
+    √ prints a single blueprints (736ms)
+    √ prints blueprints from addons
+    --json
+      √ works (38ms)
+      √ prints commands from addons
+      √ prints blueprints from addons
+
+  Acceptance: ember destroy with --in option
+    √ blueprint foo --in lib/other-thing (3080ms)
+    √ blueprint foo --in ./non-lib/other-thing (3030ms)
+    √ blueprint foo --in non-lib/other-thing (3020ms)
+    √ blueprint foo --in non-lib/nested/other-thing (3102ms)
+
+  Acceptance: ember generate with --in option
+    √ generate blueprint foo using lib (2138ms)
+    √ generate blueprint foo using custom path using current directory (2108ms)
+    √ generate blueprint foo using custom path (2124ms)
+    √ generate blueprint foo using custom nested path (2163ms)
+    √ generate blueprint foo using sibling path (2134ms)
+
+  Acceptance: ember generate in-repo-addon
+    √ in-repo-addon blueprint foo inside alternate path (2116ms)
+    √ in-repo-addon adds path to lib (1186ms)
+
+  Acceptance: ember init
+    √ ember init (327ms)
+    √ init an already init'd folder (1222ms)
+    √ init a single file (290ms)
+    √ init a single file on already init'd folder (1220ms)
+    √ init multiple files by glob pattern (281ms)
+    √ init multiple files by glob pattern on already init'd folder (1197ms)
+    √ init multiple files by glob patterns (307ms)
+    √ init multiple files by glob patterns on already init'd folder (1232ms)
+    √ should not create .git folder (309ms)
+    √ ember init without --lang flag (default) has no lang attribute in index.html (318ms)
+    √ ember init with --lang flag and valid code assigns lang attribute in index.html (306ms)
+    √ ember init with --lang flag and programming language fails with an error message
+    √ ember init with --lang flag but no specification fails with an error message; absorbs ember-cli option (declared)
+    √ ember init with --lang flag but no specification fails with an error message; absorbs appended ember-cli option (hidden)
+    √ ember init with --lang flag and invalid code fails with an error message
+
+  Acceptance: missing a before/after addon
+    √ does not break ember-cli (275ms)
+
+  Acceptance: ember new
+    √ ember new adds ember-welcome-page by default (302ms)
+    √ ember new @foo/bar, when parent directory does not contain `foo` (309ms)
+    √ ember new @foo/bar, when direct parent directory contains `foo` (315ms)
+    √ ember new @foo/bar, when parent directory heirarchy contains `foo` (306ms)
+    √ ember new --no-welcome skips installation of ember-welcome-page (306ms)
+    √ ember new without --lang flag (default) has no lang attribute in index.html (305ms)
+    √ ember new with --lang flag and valid code assigns lang attribute in index.html (295ms)
+    √ ember new with --lang flag and programming language fails with an error message
+    √ ember new with --lang flag but no specification fails with an error message; absorbs ember-cli option (declared)
+    √ ember new with --lang flag but no specification fails with an error message; absorbs appended ember-cli option (hidden)
+    √ ember new with --lang flag and invalid code fails with an error message
+    √ ember new npm blueprint with old version (2623ms)
+    √ ember new foo, where foo does not yet exist, works (314ms)
+    √ ember new foo, blueprint targets match the default ember-cli targets (293ms)
+    √ ember new with empty app name fails with a warning
+    √ ember new without app name fails with a warning
+    √ ember new with app name creates new directory and has a dasherized package name (314ms)
+    √ Can create new ember project in an existing empty directory (296ms)
+    √ Cannot create new ember project in a populated directory
+    √ Cannot run ember new, inside of ember-cli project (1001ms)
+    √ ember new with blueprint uses the specified blueprint directory with a relative path (267ms)
+    √ ember new with blueprint uses the specified blueprint directory with an absolute path (266ms)
+    √ ember new with git blueprint checks out the blueprint and uses it (4728ms)
+    √ ember new with git blueprint and ref checks out the blueprint with the correct ref and uses it (1855ms)
+    √ ember new with shorthand git blueprint and ref checks out the blueprint with the correct ref and uses it (1806ms)
+    √ ember new passes blueprint options through to blueprint (277ms)
+    √ ember new uses yarn when blueprint has yarn.lock (1862ms)
+    √ ember new without skip-git flag creates .git dir (674ms)
+    √ ember new cleans up after itself on error (272ms)
+    √ ember new with --dry-run does not create new directory (280ms)
+    √ ember new with --directory uses given directory name and has correct package name (300ms)
+    √ ember addon with --directory uses given directory name and has correct package name (343ms)
+    √ ember addon @foo/bar when parent directory does not contain `foo` (339ms)
+    √ ember addon @foo/bar when parent directory contains `foo` (363ms)
+    verify fixtures
+      √ app + npm + !welcome (315ms)
+      √ app + yarn + welcome (308ms)
+      √ addon + yarn + welcome (344ms)
+      √ addon + npm + !welcome (358ms)
+    verify dependencies
+      √ are locked down for pre-1.0 versions (296ms)
+
+  Acceptance: ember destroy pod
+    √ blueprint foo --pod (2238ms)
+    √ blueprint foo/bar --pod (2286ms)
+    √ http-mock foo --pod (2230ms)
+    √ http-proxy foo --pod (2138ms)
+    √ deletes files generated using blueprints from the project directory (2106ms)
+    - podModulePrefix deprecation warning
+
+  Acceptance: ember generate pod
+    √ blueprint foo --pod (1223ms)
+    √ blueprint foo/bar --pod (1219ms)
+    √ http-mock foo --pod (1232ms)
+    √ http-mock foo-bar --pod (1198ms)
+    √ http-proxy foo --pod (1217ms)
+    √ uses blueprints from the project directory (1220ms)
+    √ allows custom blueprints to override built-ins (1218ms)
+    √ passes custom cli arguments to blueprint options (1214ms)
+    √ correctly identifies the root of the project (1230ms)
+    - podModulePrefix deprecation warning
+
+  Blueprint
+    √ exists
+    √ derives name from path
+    .fileMapTokens
+      √ adds additional tokens from fileMapTokens hook
+    .generateFileMap
+      √ should not have locals in the fileMap
+    .lookup
+      √ uses an explicit path if one is given
+      √ finds blueprints within given lookup paths
+      √ finds blueprints in the ember-cli package
+      √ can instantiate a blueprint that exports an object instead of a constructor
+      √ throws an error if no blueprint is found
+      √ returns undefined if no blueprint is found and ignoredMissing is passed
+    filesPath
+      √ returns the blueprints default files path
+    basic blueprint installation
+      √ installs basic files
+      √ re-installing identical files
+      √ re-installing conflicting files
+      √ installs path globPattern file
+      √ installs multiple globPattern files
+      √ throws error when there is a trailing forward slash in entityName
+      √ throws error when an entityName is not provided
+      √ throws error when an action does not exist
+      √ calls normalizeEntityName hook during install
+      √ normalizeEntityName hook can modify the entity name
+      √ calls normalizeEntityName before locals hook is called
+      √ calls appropriate hooks with correct arguments
+      √ doesn't throw when running uninstall without installing first
+      called on an existing project
+        √ ignores files in ignoredUpdateFiles
+      called on a new project
+        √ does not ignores files in ignoredUpdateFiles
+    basic blueprint uninstallation
+      √ uninstalls basic files
+      √ uninstall doesn't remove non-empty folders
+      √ uninstall doesn't log remove messages when file does not exist
+    instrumented blueprint uninstallation
+      √ calls appropriate hooks with correct arguments
+    addPackageToProject
+      √ passes a packages array for addPackagesToProject
+      √ passes a packages array with target for addPackagesToProject
+    addPackagesToProject
+      √ looks up the `npm-install` task
+      √ calls the task with package names
+      √ calls the task with package names and versions
+      √ writes information to the ui log for a single package
+      √ writes information to the ui log for multiple packages
+      √ does not error if ui is not present
+      √ runs task with --save-dev
+      √ does not use verbose mode with the task
+    removePackageFromProject
+      √ looks up the `npm-uninstall` task
+    removePackagesFromProject
+      √ looks up the `npm-uninstall` task
+      √ calls the task with only existing packages
+      √ skips uninstall if no matching package exists
+      √ calls the task with package names
+      √ writes information to the ui log for a single package
+      √ writes information to the ui log for multiple packages
+      √ does not error if ui is not present
+      √ runs task with --save-dev
+      √ does not use verbose mode with the task
+    addBowerPackageToProject
+      √ passes a packages array for addBowerPackagesToProject
+      √ passes a packages array with target for addBowerPackagesToProject
+      √ correctly handles local package naming, with a numbered pkg version
+      √ correctly handles local package naming, with a non-versioned package
+    addBowerPackagesToProject
+      √ looks up the `bower-install` task
+      √ calls the task with the package names
+      √ uses the provided target (version, range, sha, etc)
+      √ properly parses a variety of bower package endpoints
+      √ uses uses verbose mode with the task
+    addAddonToProject
+      √ passes a packages array for addAddonsToProject
+      √ passes a packages array with target for addAddonsToProject
+    addAddonsToProject
+      √ looks up the `addon-install` task
+      √ calls the task with package name
+      √ calls the task with correctly parsed options
+      √ writes information to the ui log for a single package
+      √ writes information to the ui log for multiple packages
+      √ does not error if ui is not present
+    load
+      √ loads and returns a blueprint object
+      √ loads only blueprints with an index.js
+    lookupBlueprint
+      √ can lookup other Blueprints from the project blueprintLookupPaths
+      √ can find internal blueprints
+    ._generateFileMapVariables
+      √ should create the correct default fileMapVariables
+      √ should use the moduleName method argument for moduleName
+      √ should use the locals method argument for its locals value
+      √ should use the option.originBlueprintName value as its originBlueprintName if included in the options hash
+      √ should include a podPath if the project's podModulePrefix is defined
+      √ should include an inAddon and inDummy flag of true if the project is an addon
+      √ should include an inAddon and inRepoAddon flag of true if options.inRepoAddon is true
+      √ should include an in flag of true if options.in is true
+      √ should have a hasPathToken flag of true if the blueprint hasPathToken is true
+    ._locals
+      √ should return a default object if no custom options are passed
+      √ it should call the locals method with the correct arguments
+      √ should call _generateFileMapVariables with the correct arguments
+      √ should call generateFileMap with the correct arguments
+      √ should use the options.entity.name as its moduleName if its value is defined
+      √ should update its fileMap values to match the generateFileMap result
+      √ should return an object containing custom local values
+
+  build task test
+    √ can build (151ms)
+    √ generates valid visualization output (191ms)
+    √ it displays environment (57ms)
+
+  clean-remove
+    √ removes empty folders
+    √ preserves filled folders
+
+  analytics
+    √ track gets invoked on command.validateAndRun()
+
+  blueprint - addon
+    Blueprint.lookup
+      entityName
+        √ throws error when current project is an existing ember-cli project
+        √ works when current project is an existing ember-cli addon
+        √ keeps existing behavior by calling Blueprint.normalizeEntityName
+    direct blueprint require
+      generatePackageJson
+        √ works
+        √ removes the `private` property
+        √ overwrites `name`
+        √ overwrites `description`
+        √ moves `ember-cli-babel` from devDependencies to dependencies
+        √ moves `ember-cli-htmlbars` from devDependencies to dependencies
+        √ does not push multiple `ember-addon` keywords
+        √ overwrites any version of `ember-disable-prototype-extensions`
+        √ adds `scripts.test:all`
+        √ overwrites `ember-addon.configPath`
+        √ preserves dependency ordering
+
+  Acceptance: ember generate and destroy in-repo-addon
+    √ in-repo-addon fooBar (2360ms)
+
+  Unit: in-repo-addon blueprint
+    √ adds to paths
+    √ ignores if already exists
+    √ removes from paths
+    √ removes paths if last one
+    √ alphabetizes paths
+
+  Acceptance: ember generate and destroy lib
+    √ lib foo (2213ms)
+    √ lib foo with ember-cli-jshint (2277ms)
+
+  Acceptance: ember generate and destroy server
+    √ server (1325ms)
+    √ server with ember-cli-jshint (1232ms)
+
+  Addon - linting
+    √ calls lintTree on project addons for app directory (332ms)
+    √ calls lintTree on project addons for addon directory (87ms)
+    √ calls lintTree on project addons for addon directory with only templates
+    √ calls lintTree on project addons for addon directory with templates (38ms)
+    √ calls lintTree on project addons for addon-test-support directory
+    √ calls lintTree on project addons for test-support directory
+    √ calls lintTree for trees in an addon (57ms)
+
+  Addon - moduleName
+    √ uses the module name function
+
+  Builder - broccoli tests
+    √ falls back to broccoli-builder@0.18 when legacy plugins exist in build (60ms)
+
+  Default Packager: Additional Assets
+    √ caches packaged javascript tree
+    √ imports additional assets properly
+
+  Default Packager: Bower
+    √ caches packaged bower tree
+    √ packages bower files with default folder
+    √ packages bower files with custom folder
+
+  Default Packager: Config
+    √ caches packaged config tree
+    √ packages config files w/ tests disabled
+    √ packages config files w/ tests enabled
+
+  Default Packager: Ember CLI Internal
+    √ caches packaged ember cli internal tree (75ms)
+    √ packages internal files properly (41ms)
+    √ populates the contents of internal files correctly (39ms)
+    √ populates the contents of internal files correctly when `storeConfigInMeta` is enabled (48ms)
+    √ populates the contents of internal files correctly, including content from add-ons (50ms)
+
+  Default Packager: External
+    √ applies transforms to an external tree (41ms)
+
+  Default Packager: Index
+    √ caches processed index tree
+    √ works with a custom path
+    √ populates `index.html` according to settings
+
+  Default Packager: Javascript
+    √ caches packaged javascript tree (610ms)
+    √ packages javascript files with sourcemaps on (155ms)
+    √ packages javascript files with sourcemaps off (159ms)
+    √ processes javascript according to the registry
+    √ runs pre/post-process add-on hooks
+
+  Default Packager: Process Javascript
+    √ caches packaged application tree (72ms)
+
+  Default Packager: Public
+    √ caches packaged public tree
+    √ packages public files
+
+  Default Packager: Styles
+    √ caches packaged styles tree (916ms)
+    √ does not minify css files when minification is disabled
+    √ minifies css files when minification is enabled
+    √ processes css according to the registry (77ms)
+    √ inlines css imports (39ms)
+    √ runs pre/post-process add-on hooks
+    √ prevents duplicate inclusion, maintains order: CSS
+
+  Default Packager: Templates
+    √ caches processed templates tree
+    √ processes templates according to the registry
+    √ runs pre/post-process add-on hooks
+
+  Default Packager: Tests
+    √ caches packaged tests tree (304ms)
+    √ packages test files (with sourcemaps) (213ms)
+    √ packages test files (without sourcemaps) (133ms)
+    √ does not process `addon-test-support` folder (49ms)
+    √ processes tests files according to the registry (47ms)
+    √ emits dist/assets/tests.js by default (196ms)
+    √ lintTree results do not "win" over app tests (161ms)
+    √ maintains the concatenation order (196ms)
+
+  Default Packager: Vendor
+    √ caches packaged vendor tree
+    √ packages vendor files
+
+  EmberAddon
+    √ should merge options with defaults to depth
+    √ should contain env
+    √ should contain return the correct environment
+
+  EmberApp
+    √ fails with invalid type
+    getStyles()
+      √ can handle empty styles folders
+      √ can handle empty addon styles folders
+      √ add `app/styles` folder from add-ons
+      √ returns add-ons styles files
+      √ does not fail if add-ons do not export styles
+    getPublic()
+      √ returns public files for app and add-ons (66ms)
+      √ does not fail if app or add-ons have the same `public` folder structure
+    getAddonTemplates()
+      √ returns add-ons template files
+    getTests()
+      √ returns all test files `hinting` is enabled
+      √ returns test files w/o lint tests if `hinting` is disabled
+    constructor
+      √ should override project.configPath if configPath option is specified
+      √ should update project.config() if configPath option is specified
+      √ should set bowerDirectory for app
+      √ should merge options with defaults to depth
+      √ should do the right thing when merging default object options
+      √ should watch vendor if it exists
+      Addons included hook
+        √ should set the app on the addons
+      loader.js missing
+        √ does not error when loader.js is present in registry.availablePlugins
+        √ throws an error when loader.js is not present in registry.availablePlugins
+        √ does not throw an error if _ignoreMissingLoader is set
+      ember-resolver npm vs Bower
+        √ does not load ember-resolver.js as bower dep when ember-resolver is present in registry.availablePlugins
+        √ keeps ember-resolver.js in vendorFiles when npm ember-resolver is not installed, but is present in bower.json
+        √ removes ember-resolver.js from vendorFiles when not in bower.json and npm ember-resolver not installed
+      options.babel.sourceMaps
+        √ disables babel sourcemaps by default
+        √ can enable babel sourcemaps with the option
+      options.fingerprint.exclude
+        √ excludeds testem in fingerprint exclude
+    addons
+      included hook
+        √ included hook is called properly on instantiation
+        √ does not throw an error if the addon does not implement `included`
+      addonTreesFor
+        √ addonTreesFor returns an empty array if no addons return a tree
+        √ addonTreesFor calls treesFor on the addon
+        √ addonTreesFor does not throw an error if treeFor is not defined
+        addonTreesFor is called properly
+          √ getAppJavascript calls addonTreesFor
+      toArray
+        √ excludes `tests` tree from resulting array if the tree is not present
+      toTree
+        √ calls postProcessTree if defined
+        √ calls addonPostprocessTree
+        √ calls each addon postprocessTree hook (99ms)
+      addons can be disabled
+        isEnabled is called properly
+          with environment
+            √ development
+            √ foo
+        blacklist
+          √ prevents addons to be added to the project
+          √ throws if unavailable addon is specified
+        whitelist
+          √ prevents non-whitelisted addons to be added to the project
+          √ throws if unavailable addon is specified
+        blacklist wins over whitelist
+          √ prevents addon to be added to the project
+      addonLintTree
+        √ does not throw an error if lintTree is not defined
+        √ calls lintTree on the addon
+    import
+      √ appends dependencies to vendor by default
+      √ appends dependencies
+      √ prepends dependencies
+      √ prepends dependencies to outputFile
+      √ appends dependencies to outputFile
+      √ defaults to development if production is not set
+      √ honors explicitly set to null in environment
+      √ normalizes asset path correctly
+      √ option.using throws exception given invalid inputs
+    vendorFiles
+      √ defines vendorFiles by default
+      √ redefines a location of a vendor asset
+      √ defines vendorFiles in order even when option for it is passed
+      √ does not include jquery if the app has `@ember/jquery` installed
+      √ does not include jquery if the app has `@ember/optional-features` with the `jquery-integration` FF turned off
+      √ removes dependency in vendorFiles
+      √ defaults to ember.debug.js if exists in bower_components (629ms)
+      √ switches the default ember.debug.js to ember.js if it does not exist (625ms)
+      √ does not clobber an explicitly configured ember development file
+      handlebars.js
+        √ does not app.import handlebars if not present in bower.json
+        √ includes handlebars if present in bower.json (715ms)
+        √ includes handlebars if present in provided `vendorFiles`
+    _initOptions
+      √ sets the tests directory as watched when tests are enabled
+      √ sets the tests directory as unwatched when tests are disabled
+    _resolveLocal
+      √ resolves a path relative to the project root
+    _concatFiles()
+      concat order
+        √ correctly orders concats from app.styles()
+        √ correctly orders concats from app.testFiles()
+    deprecations
+      √ shows ember-cli-shims deprecation (687ms)
+      jQuery integration
+        √ shows deprecation
+        √ does not show deprecation if the app has `@ember/jquery` installed
+        √ does not show deprecation if the app has `@ember/optional-features` with the `jquery-integration` FF turned off
+
+  EmberApp#appAndDependencies
+    √ moduleNormalizerDisabled (764ms)
+
+  EmberApp: Bower Dependencies
+    √ are not packaged unless explicitly imported (1038ms)
+    √ are packaged when explicitly imported (898ms)
+    √ are packaged when explicitly imported for production (939ms)
+    √ are packaged when explicitly imported for development (877ms)
+
+  broccoli/merge-trees
+    √ returns the first item when merging single item array
+    √ returns a constant "empty tree" when passed an empty array
+    √ passes all inputTrees through when non-empty
+    √ filters out empty trees from inputs
+    √ removes duplicate trees with the last duplicate being the remainder
+
+  template preprocessors
+    Addon
+      √ the template preprocessor receives access to all files
+    EmberApp
+      √ the template preprocessor receives access to all files (255ms)
+
+  Unit: CLI
+    √ ember (268ms)
+    √ callHelp
+    √ errors correctly if the init hook errors
+    √ "run" method must throw error if no evironment provided
+    √ errors correctly if "run" method not called before "maybeMakeCommand" execution
+    √ ember --version (257ms)
+    √ ember -v (269ms)
+    √ ember <valid command> (255ms)
+    - ember <valid command with args>
+    √ ember <invalid command>
+    custom addon command
+      √ beforeRun can return a promise (267ms)
+    command interruption handler
+      √ sets up handler before command run (253ms)
+      √ cleans up handler after command finished (268ms)
+    help
+      √ ember --help (254ms)
+      √ ember new --help (268ms)
+      √ ember -h (265ms)
+      √ ember new -h (254ms)
+    server
+      √ ember server --port 9999 (286ms)
+      √ ember server --host localhost (287ms)
+      √ ember server --port 9292 --host localhost (287ms)
+      √ ember server --proxy http://localhost:3000/ (282ms)
+      √ ember server --proxy https://localhost:3009/ --insecure-proxy (280ms)
+      √ ember server --proxy https://localhost:3009/ --no-insecure-proxy (284ms)
+      √ ember server --watcher events (288ms)
+      √ ember server --watcher polling (267ms)
+      √ ember server (292ms)
+      √ ember server --environment production (284ms)
+      √ ember server --environment development (284ms)
+      √ ember server --environment foo (284ms)
+      √ ember server --environment development (286ms)
+      √ ember server --environment foo (280ms)
+      √ EMBER_ENV=production ember server (280ms)
+      √ EMBER_ENV=development ember server (283ms)
+      √ EMBER_ENV=foo ember server (287ms)
+      √ ember s --port 9999 (287ms)
+      √ ember s --host localhost (279ms)
+      √ ember s --port 9292 --host localhost (279ms)
+      √ ember s --proxy http://localhost:3000/ (286ms)
+      √ ember s --proxy https://localhost:3009/ --insecure-proxy (285ms)
+      √ ember s --proxy https://localhost:3009/ --no-insecure-proxy (286ms)
+      √ ember s --watcher events (282ms)
+      √ ember s --watcher polling (262ms)
+      √ ember s (283ms)
+      √ ember s --environment production (285ms)
+      √ ember s --environment development (286ms)
+      √ ember s --environment foo (282ms)
+      √ ember s --environment development (278ms)
+      √ ember s --environment foo (282ms)
+      √ EMBER_ENV=production ember s (286ms)
+      √ EMBER_ENV=development ember s (287ms)
+      √ EMBER_ENV=foo ember s (280ms)
+    generate
+      √ ember generate foo bar baz (266ms)
+      √ ember g foo bar baz (266ms)
+    init
+      √ ember init (254ms)
+      √ ember init <app-name> (268ms)
+    new
+      √ ember new (267ms)
+      √ ember new MyApp (267ms)
+    build
+      √ ember build (284ms)
+      √ ember build --disable-analytics (286ms)
+      √ ember build --watch (284ms)
+      √ ember build --suppress-sizes (283ms)
+      √ ember build --environment production (281ms)
+      √ ember build --environment development (285ms)
+      √ ember build --environment baz (287ms)
+      √ EMBER_ENV=production ember build --environment development (287ms)
+      √ EMBER_ENV=production ember build --environment baz (280ms)
+      √ EMBER_ENV=production ember build  (282ms)
+      √ EMBER_ENV=development ember build  (283ms)
+      √ EMBER_ENV=baz ember build  (286ms)
+      √ ember b (285ms)
+      √ ember b --disable-analytics (282ms)
+      √ ember b --watch (281ms)
+      √ ember b --suppress-sizes (286ms)
+      √ ember b --environment production (287ms)
+      √ ember b --environment development (284ms)
+      √ ember b --environment baz (284ms)
+      √ EMBER_ENV=production ember b --environment development (283ms)
+      √ EMBER_ENV=production ember b --environment baz (285ms)
+      √ EMBER_ENV=production ember b  (285ms)
+      √ EMBER_ENV=development ember b  (287ms)
+      √ EMBER_ENV=baz ember b  (286ms)
+    default options config file
+      - reads default options from .ember-cli file
+    logError
+      √ returns error status code in production
+      √ does not throw an error in production
+      √ throws error in testing
+    Global command options
+      --verbose
+        option parsing
+          √ sets process.env.EMBER_VERBOSE_${NAME} for each space delimited option
+          √ ignores verbose options after --
+          √ ignores verbose options after -
+
+  cli/lookup-command.js
+    √ lookupCommand() should find commands by name and aliases.
+    √ lookupCommand() should find commands that addons add by name and aliases.
+    √ lookupCommand() should write out a warning when overriding a core command
+    √ lookupCommand() should write out a warning when overriding a core command and allow it if intentional
+    √ lookupCommand() should return UnknownCommand object when command name is not present.
+
+  addon command
+    √ doesn't allow to create an addon named `test`
+    √ doesn't allow to create an addon named `ember`
+    √ doesn't allow to create an addon named `Ember`
+    √ doesn't allow to create an addon named `ember-cli`
+    √ doesn't allow to create an addon named `vendor`
+    √ doesn't allow to create an addon with a period in the name
+    √ doesn't allow to create an addon with a name beginning with a number
+    √ doesn't allow to create an addon when the name is a period
+    √ registers blueprint options in beforeRun
+
+  build command
+    √ Build task is provided with the project instance
+    √ BuildWatch task is provided with the project instance
+    √ BuildWatch task is provided with a watcher option
+    √ Asset Size Printer task is not run after Build task in non-production environment
+    √ Asset Size Printer task is run after Build task in production environment
+    √ Asset Size Printer task is not run if suppress sizes option is provided
+
+  destroy command
+    √ runs DestroyFromBlueprint with expected options
+    √ complains if no entity name is given
+    √ complains if no blueprint name is given
+    √ does not throw errors when beforeRun is invoked without the blueprint name
+    √ rethrows errors from beforeRun
+    help
+      √ prints extra info
+
+  generate command
+    √ runs GenerateFromBlueprint but with null nodeModulesPath with npm
+    √ runs GenerateFromBlueprint but with null nodeModulesPath with yarn
+    √ runs GenerateFromBlueprint with expected options
+    √ does not throw errors when beforeRun is invoked without the blueprint name
+    √ complains if no blueprint name is given
+    help
+      √ lists available blueprints
+      √ lists available blueprints json
+      √ works with single blueprint
+      √ works with single blueprint json
+      √ handles missing blueprint
+      √ handles missing blueprint json
+      √ ignores overridden blueprints when verbose false
+      √ shows overridden blueprints when verbose true
+
+  help command
+    common to both
+      √ finds command on disk (103ms)
+      √ looks up multiple commands (125ms)
+    unique to text printing
+      √ lists commands (68ms)
+      √ works with single command (63ms)
+      √ works with single command alias (63ms)
+      √ passes extra commands to `generate` (67ms)
+      √ handles no extra commands to `generate` (61ms)
+      √ passes extra commands to `generate` alias (63ms)
+      √ handles missing command
+      √ respects skipHelp when listing
+      √ ignores skipHelp when single (64ms)
+      √ lists addons (63ms)
+      √ finds single addon command (60ms)
+    unique to json printing
+      √ lists commands
+      √ handles special option `Path`
+      √ respects skipHelp when listing
+      √ lists addons
+
+  init command
+    √ doesn't allow to create an application named `test` (664ms)
+    √ doesn't allow to create an application without project name (650ms)
+    √ Uses the name of the closest project to when calling installBlueprint (659ms)
+    √ Uses the provided app name over the closest found project (646ms)
+    √ Uses process.cwd if no package is found when calling installBlueprint (742ms)
+    √ doesn't use --dry-run or any other command option as the name (660ms)
+    √ doesn't use . as the name (657ms)
+    √ Uses the "app" blueprint by default (681ms)
+    √ Uses arguments to select files to init (728ms)
+    √ Uses the "addon" blueprint for addons (680ms)
+    √ Registers blueprint options in beforeRun (663ms)
+    √ Passes command options through to the install blueprint task (725ms)
+    √ ember init without --lang flag (default) has no error message before run; blueprint has lang key of empty String (651ms)
+    √ ember init with --lang flag and valid code has no error message before run; blueprint has lang key of input String (706ms)
+    √ ember init with --lang flag and programming language fails with an error message
+    √ ember init with --lang flag but no specification fails with an error message; absorbs ember-cli option (declared)
+    √ ember init with --lang flag and invalid code fails with an error message
+
+  install command
+    √ initializes npm install and generate blueprint task with ui, project and analytics
+    with args
+      √ runs the npm install task with given name and save-dev true
+      √ runs the npm install task with given name and save-dev true in an addon
+      √ runs the npm install task with given name and save true with the --save option
+      √ runs the npm install task with given name and save true in an addon with the --save option
+      √ runs the package name blueprint task with given name and args
+      √ fails to install second argument for unknown addon
+      √ runs npmInstall once and installs three addons
+      √ ember-cli/ember-cli-qunit: runs npmInstall but does not install the addon blueprint
+      √ ember-cli-qunit@1.2.0: runs npmInstall and installs the addon blueprint
+      √ @ember-cli/ember-cli-qunit: runs npmInstall and installs the addon blueprint
+      √ gives helpful message if it can't find the addon
+    without args
+      √ gives a helpful message if no arguments are passed
+
+  new command
+    √ doesn't allow to create an application named `test`
+    √ doesn't allow to create an application named `ember`
+    √ doesn't allow to create an application named `Ember`
+    √ doesn't allow to create an application named `ember-cli`
+    √ doesn't allow to create an application named `vendor`
+    √ doesn't allow to create an application with a period in the name
+    √ doesn't allow to create an application with a name beginning with a number
+    √ shows a suggestion messages when the application name is a period
+    √ registers blueprint options in beforeRun
+    √ passes command options through to init command
+    √ ember new without --lang flag (default) has no error message before run; blueprint has lang key of empty String
+    √ ember new with --lang flag and valid code has no error message before run; blueprint has lang key of input String
+    √ ember new with --lang flag and programming language fails with an error message
+    √ ember new with --lang flag but no specification fails with an error message; absorbs ember-cli option (declared)
+    √ ember new with --lang flag and invalid code fails with an error message
+
+  serve command
+    √ has correct default options (40ms)
+    √ setting --port without --live-reload-port
+    √ setting both --port and --live-reload-port
+    √ allows OS to choose port
+    √ has correct liveLoadPort
+    √ has correct liveReloadLoadHost
+    √ has correct liveLoadBaseUrl
+    √ has correct proxy
+    √ has correct secure proxy option
+    √ has correct default value for secure proxy
+    √ requires proxy URL to include protocol
+    √ has correct default value for transparent proxy
+    √ host alias does not conflict with help alias
+    √ has correct value for proxy-in-timeout
+    √ has correct default value for proxy-in-timeout
+    √ has correct value for proxy-out-timeout
+    √ has correct default value for proxy-out-timeout
+    √ throws a meaningful error when run outside the project
+
+  asset-sizes command
+    √ has correct default value for output path
+    √ has correct options
+
+  default options config file
+    - reads default options from .ember-cli file
+
+  test command
+    default
+      √ builds and runs test (87ms)
+      √ has the correct options (79ms)
+      √ passes through custom configFile option (76ms)
+      √ does not pass any port options (58ms)
+      √ passes through a custom test port option (58ms)
+      √ passes through a custom test port option of 0 to allow OS to choose open system port (54ms)
+      √ only passes through the port option (58ms)
+      √ passes both the port and the test port options (76ms)
+      √ passes through custom host option (64ms)
+      √ passes through output path option (57ms)
+      √ passes through custom reporter option (55ms)
+      √ has the correct options when called with a build path and does not run a build task (56ms)
+      √ throws an error if the build path does not exist
+    --server option
+      √ builds a watcher with verbose set to false (74ms)
+      √ builds a watcher with options.watcher set to value provided
+      √ DOES NOT throw an error if using a build path
+    _generateCustomConfigs
+      √ should return an object even if passed param is empty object
+      √ when launch option is present, should be reflected in returned config
+      √ when query option is present, should be reflected in returned config
+      √ when provided test-page the new file returned contains the value in test_page
+      √ when provided test-page with filter, module, and query the new file returned contains those values in test_page
+      √ when provided test-page with filter and module the new file returned contains both option values in test_page
+      √ when provided test-page with filter and query the new file returned contains both option values in test_page
+      √ when provided test-page with module and query the new file returned contains both option values in test_page
+      √ when provided launch the new file returned contains the value in launch
+      √ when provided filter is all lowercase to match the test name
+      √ when module and filter option is present uses buildTestPageQueryString for test_page queryString
+      √ new file returned contains the filter option value in test_page
+      √ adds with a `&` if query string contains `?` already
+      √ new file returned contains the module option value in test_page
+      √ new file returned contains the query option value in test_page
+      √ new file returned contains the query option value with multiple queries in test_page
+
+  uninstall:npm command
+    √ throws a friendly silent error with no args
+    √ throws a friendly silent error with args
+
+  version command
+    √ reports node, npm, and os versions
+    √ supports a --verbose flag
+
+  SilentError
+DEPRECATION: `ember-cli/lib/errors/silent.js` is deprecated, use `silent-error` instead. Required here: 
+  Context.<anonymous> (C:\__DEV\ember-new-lang-rfc\ember-cli\tests\unit\errors\silent-test.js:8:28)
+    √ return silent-error and print a deprecation
+
+  experiments
+    isExperimentEnabled
+      √ should return true for all experiments when `EMBER_CLI_ENABLE_ALL_EXPERIMENTS` is set
+      √ setting an already disabled feature to false does not enable it
+
+  models/addon.js
+    root property
+      √ is required
+    old core object compat
+      √ treeGenerator works without .project (650ms)
+    treePaths and treeForMethods
+      √ modifying a treePath does not affect other addons
+      √ modifying a treeForMethod does not affect other addons
+      .jshintAddonTree
+        √ lints the files before preprocessing
+    initialized addon
+      √ must define a `name` property
+      generated addon
+        √ sets its project
+        √ sets its parent
+        √ sets the root
+        √ sets the pkg
+        trees for its treePaths
+          √ app
+          √ styles
+          √ templates
+          √ addon-templates
+          √ vendor
+          √ addon
+        custom treeFor methods
+          √ can define treeForApp
+          √ can define treeForStyles
+          √ can define treeForVendor
+          √ can define treeForTemplates
+          √ can define treeForAddonTemplates
+          √ can define treeForPublic
+      addon with dependencies
+        √ returns a listing of all dependencies in the addon's package.json
+      isDevelopingAddon
+        √ returns true when `EMBER_ADDON_ENV` is set to development
+        √ throws when the addon name is prefixed in package.json and not in index.js
+        √ does not throw for a mismatched addon name when process.env.EMBER_CLI_IGNORE_ADDON_NAME_MISMATCH is set
+        √ throws an error if addon name is different in package.json and index.js 
+        √ returns false when `EMBER_ADDON_ENV` is not set
+        √ returns false when `EMBER_ADDON_ENV` is something other than `development`
+        √ returns false when the addon is not the one being developed
+      findOwnAddonByName
+        √ it has the given addon
+        √ it does not have the given addon
+      hintingEnabled
+        √ returns true when `EMBER_ENV` is not set to production and options.hinting is true
+        √ returns true when `EMBER_CLI_TEST_COMMAND` is set and options.hinting is true
+        √ returns false when `EMBER_ENV` is set to production, `EMBER_CLI_TEST_COMMAND` is unset and options.hinting is true
+        √ returns false when options.hinting is set to false
+        √ returns true when options.hinting is not set
+      treeGenerator
+        √ watch tree when developing the addon itself
+        √ uses UnwatchedDir when not developing the addon itself
+      blueprintsPath
+        √ returns undefined if the `blueprint` folder does not exist
+        √ returns blueprint path if the folder exists
+      config
+        √ returns undefined if `config/environment.js` does not exist
+        √ returns blueprint path if the folder exists
+    compileTemplates
+      √ should not throw an error if addon/templates is present but empty
+    _fileSystemInfo
+      √ should not call _getAddonTemplatesTreeFiles when default treePath is used
+      √ should call _getAddonTemplatesTreeFiles when custom treePaths['addon-templates'] is used
+      √ hasPodTemplates when pod templates found
+      √ does not hasPodTemplates when no pod templates found
+      √ does not hasPodTemplates when no pod templates found (pod-like structure in `addon/templates/`)
+      √ does not hasTemplates when no templates found
+      √ does not hasJSFiles when none found
+    packageInfoCache
+      √ is provided with the parent's `packageInfoCache` object
+    treeForStyles
+      √ should move files in the root of the addons app/styles tree into the app/styles path
+    ._eachProjectAddonInvoke
+      √ should invoke the method on each of the project addons
+      √ should provide default arguments if none are specified
+    addon tree caching
+      cacheKeyForTree
+        √ returns null if `treeForApp` methods are implemented for the app tree (649ms)
+        √ returns null if `compileAddon` methods are implemented for the addon tree (666ms)
+        √ returns null if `treeForMethods` is modified (655ms)
+        √ returns stable value for repeated invocations (665ms)
+      treeFor caching
+        √ defining custom treeForAddon without modifying cacheKeyForTree does not cache (657ms)
+        √ defining custom cacheKeyForTree allows addon control of cache (656ms)
+
+  models/asset-size-printer
+    √ prints human-readable file sizes (including gzipped sizes) of css and js files in the output path
+    √ does not print gzipped file sizes of empty files
+    √ does not print project test helper file sizes
+    √ does not print non-css or js file sizes
+    √ can print out to JSON
+    √ creates an array of asset objects
+    √ prints an error when no files are found
+
+  Blueprint
+    .mapFile
+      √ replaces all occurrences of __name__ with module name
+      √ accepts locals.fileMap with multiple mappings
+    .list
+      √ returns a list of blueprints grouped by lookup path
+      √ overrides a blueprint of the same name from another package
+    help
+      printBasicHelp
+        √ handles overridden
+        √ calls printCommand
+        √ prints detailed help if verbose
+      printDetailedHelp
+        √ did not find the file
+        √ found the file
+      getJson
+        √ iterates options
+        √ does not print detailed if not verbose
+        √ is calling printDetailedHelp with availableOptions
+        √ if printDetailedHelp returns falsy, don't attach property detailedHelp
+        √ sets detailedHelp properly
+
+  models/builder.js
+    copyToOutputPath
+      √ allows for non-existent output-paths at arbitrary depth
+      build command
+        √ when outputPath is root directory ie., `--output-path=/` or `--output-path=C:`
+        √ when outputPath is project root ie., `--output-path=.`
+        √ when outputPath is a parent directory ie., `--output-path=..\..\`
+        √ allow outputPath to contain the root path as a substring, as long as it is not a parent
+    build
+      √ calls instrumentation.start
+      √ calls instrumentation.stop(build, result, resultAnnotation)
+      √ prints a deprecation warning if it discovers a < v0.1.4 version of heimdalljs
+      √ does not print a deprecation warning if it does not discover a < v0.1.4 version of heimdalljs
+      √ writes temp files to Broccoli temp dir (714ms)
+      √ produces the correct output (702ms)
+      √ returns {directory, graph} as the result object (669ms)
+    cleanup
+      √ is idempotent
+    addons
+      √ allows addons to add promises preBuild
+      √ allows addons to add promises postBuild
+      √ allows addons to add promises outputReady
+      √ hooks are called in the right order without visualization
+      √ should call postBuild before copying to dist
+      √ should call outputReady after copying to output path
+      √ buildError receives the error object from the errored step
+      √ calls buildError and does not call build, postBuild or outputReady when preBuild fails
+      √ calls buildError and does not call postBuild or outputReady when build fails
+      √ calls buildError when postBuild fails
+      √ calls buildError when outputReady fails
+      instrumentation hooks
+        √ invokes the instrumentation hook if it is preset (144ms)
+    fallback from broccoli 2 to broccoli-builder
+      √ falls back to broccoli-builder if an InvalidNode error is thrown for read/rebuild api (648ms)
+      √ errors for an invalid node (657ms)
+
+  models/command.js
+    √ parseArgs() should parse the command options.
+    √ parseArgs() should get command options from the config file and command line
+    √ parseArgs() should set default option values.
+    √ parseArgs() should return args too.
+    √ parseArgs() should warn if an option is invalid.
+    √ parseArgs() should parse shorthand options.
+    √ parseArgs() should parse shorthand dasherized options.
+    √ parseArgs() should parse string options.
+    √ should be able to set availableOptions within init
+    √ should be able to set availableOptions within beforeRun
+    √ availableOptions with aliases should work.
+    √ availableOptions with aliases should work with minimum characters.
+    √ availableOptions with aliases should work with hyphenated options
+    √ registerOptions() should allow adding availableOptions.
+    √ registerOptions() should allow overriding availableOptions.
+    √ registerOptions() should not allow aliases with the same name.
+    √ registerOptions() should warn on options override attempts.
+    √ registerOptions() should handle invalid alias definitions.
+    √ parseAlias() should parse aliases and return an object
+    √ validateOption() should validate options
+    √ validateOption() should throw an error when option is missing name or type
+    √ validateOption() should throw an error when option name is camelCase or capitalized
+    √ mergeDuplicateOption() should merge duplicate options together
+    √ implicit shorthands work with values.
+    #validateAndRun
+      √ should reject and print a message if a required option is missing.
+      √ should print a message if outside a project and command is not valid there.
+      √ selects watcher if an option
+      √ selects NO watcher if NOT an option
+      √ should print a message if inside a project and command is not valid there.
+    runTask
+      √ always handles task as a promise
+      √ command environment should be shared with a task (60ms)
+      √ _currentTask should store a reference to the current task
+      √ _currentTask should cleanup current task on fail
+      √ throws on attempt to launch concurrent tasks (64ms)
+      √ throws if the task is not found
+    help
+      printBasicHelp
+        √ calls printCommand
+        √ is root
+      printDetailedHelp
+        √ has no-op function
+      hasOption
+        √ reports false if no option with that name is present
+        √ reports true if option with that name is present
+      getJson
+        √ iterates options
+        √ calls detailed json
+
+  Unit - FileInfo
+    √ can instantiate with options
+    √ does not interpolate {{ }} or ${ }
+    √ renders an input file
+    √ allows mutation to the rendered file
+    √ rejects if templating throws
+    √ does not explode when trying to template binary files
+    √ renders a diff to the UI
+    √ renders a menu with an overwrite option
+    √ renders a menu with a skip option
+    √ renders a menu with a diff option
+    √ renders a menu without diff and edit options when dealing with binary files
+    √ normalizes line endings before comparing files
+
+  models/hardware-info.js
+    .isUsingBattery
+      √ returns null for unsupported platforms
+      on FreeBSD
+        √ returns false via apm when not on battery
+        √ returns true via apm when on battery
+        √ returns false via upower when not on battery
+        √ returns true via upower when on battery
+        √ returns null when battery status cannot be determined
+      on Linux
+        √ returns false via /sys/class/power_supply when not on battery
+        √ returns true via /sys/class/power_supply when on battery
+        √ returns false via acpi when not on battery
+        √ returns true via acpi when on battery
+        √ returns false via upower when not on battery
+        √ returns true via upower when on battery
+        √ returns null when battery status cannot be determined
+      on macOS
+        √ returns false when not on battery
+        √ returns true when on battery
+        √ returns null when an error occurs
+      on OpenBSD
+        √ returns false via apm when not on battery
+        √ returns true via apm when on battery
+        √ returns false via upower when not on battery
+        √ returns true via upower when on battery
+        √ returns null when battery status cannot be determined
+      on Windows
+        √ returns false when not on battery
+        √ returns true when on battery
+        √ returns null when an error occurs
+    .memorySwapUsed
+      √ returns null for unsupported platforms
+      √ returns the expected value on FreeBSD
+      √ returns null on FreeBSD when an error occurs
+      √ returns the expected value on Linux
+      √ returns null on Linux when an error occurs
+      √ returns the expected value on macOS
+      √ returns null on macOS when an error occurs
+      √ returns the expected value on OpenBSD
+      √ returns null on OpenBSD when an error occurs
+      √ returns the expected value on Windows
+      √ returns null on Windows when an error occurs
+    .processorLoad
+      √ returns null on Windows
+    .processorSpeed
+      √ averages the processors' speeds
+
+  Installation Checker
+    bower
+      √ works when installation directory exist
+      √ fails when installation directory doesn't exist
+    npm
+      √ works when installation directory exist
+      √ fails when installation directory doesn't exist
+    npm and bower
+      √ fails reporting both dependencies
+      √ ignores directories without bower.js and package.json files
+
+  models/instatiate-addons.js
+    √ ordering without before/after (128ms)
+    √ ordering with before specified (54ms)
+    √ ordering with after specified (50ms)
+    √ ordering always matches package.json name (index.js name is ignored) (47ms)
+    √ errors when there is a cycle detected (41ms)
+
+  models/instrumentation.js
+    ._enableFSMonitorIfInstrumentationEnabled
+      √ if VIZ is NOT enabled, do not monitor
+      √ if VIZ is enabled, monitor
+      √ if instrumentation is enabled, monitor
+      √ if enableInstrumentation is NOT enabled in .ember-cli, do not monitor
+      √ if enableInstrumentation is enabled in .ember-cli, monitor
+    constructor
+      when instrumentation is enabled
+        √ starts an init node if init instrumentation is missing
+        √ does not create an init node if init instrumentation is included
+        √ does not warn if init instrumentation is included
+      when instrumentation is not enabled
+        √ does not create an init node if init instrumentation is missing
+        √ does not warn when init instrumentation is missing
+    .isVizEnabled
+      √ is true and does not warn if BROCCOLI_VIZ=1
+      √ is true and warns at most once if BROCCOLI_VIZ is set but not 1
+      √ is false if BROCCOLI_VIZ is unset
+    .isEnabled
+      √ is true if BROCCOLI_VIZ=1
+      √ is true if EMBER_CLI_INSTRUMENTATION=1
+      √ is false if EMBER_CLI_INSTRUMENTATION != 1
+      √ is false if both BROCCOLI_VIZ and EMBER_CLI_INSTRUMENTATION are unset
+    .start
+      √ starts a new subtree for name
+      √ does not start a subtree if instrumentation is disabled
+      √ throws if name is unexpected
+      √ removes any prior instrumentation information to avoid leaks
+    .stopAndReport
+      √ throws if name is unexpected
+      √ throws if name has not yet started
+      √ warns if heimdall stop throws (eg when unbalanced) (297ms)
+      √ computes summary for name
+      writes to disk
+        √ writes instrumentation info if viz is enabled
+        √ does not write instrumentation info if viz is disabled
+      addons
+        √ invokes addons that have [INSTRUMENTATION] for init
+        √ invokes addons that have [INSTRUMENTATION] for build
+        √ does not invoke addons if instrumentation is disabled
+    ._instrumenationTreeFor
+      √ produces a valid tree for init
+      √ produces a valid tree for build
+    summaries
+      ._buildSummary
+        √ computes initial build sumamries (144ms)
+        √ computes rebuild summaries (423ms)
+      ._initSummary
+        √ computes an init summary (141ms)
+      ._commandSummary
+        √ computes a command summary (136ms)
+      ._shutdownSummary
+        √ computes a shutdown summary (140ms)
+
+  models/package-info-cache/node-modules-list-test
+    √ correctly constructs
+    .NULL
+      √ returns a singleton, deeply frozen NodeMoudlesList
+    findPackage
+      √ works with no entries
+      √ supports basic entries (missing, present, scoped)
+
+  models/package-info-cache/package-info-cache-test.js
+    lexicographically
+      √ works
+    pushUnique
+      √ works (and does last write win)
+    packageInfo contents tests on valid project
+      √ finds project PackageInfo entry for project root
+      √ projectPackageInfo has a "pkg" field
+      √ shows projectPackageInfo is considered valid
+      √ is a project, so it may have addons
+      √ shows projectPackageInfo has cliInfo at ember-cli root dir
+      √ shows projectPackageInfo has 1 error
+      - shows projectPackageInfo error is "3 dependencies missing"
+      √ shows projectPackageInfo has 1 dependencyPackage
+      - shows projectPackageInfo has 8 devDependencyPackages
+      √ shows projectPackageInfo.devDependencyPackages + missing dependencies = project.devDependencies
+      √ shows projectPackageInfo has 1 in-repo addon named "ember-super-button"
+      √ shows projectPackageInfo has 7 internal addon packages
+      - shows projectPackageInfo has 9 node-module entries
+    packageInfo
+      project with invalid paths
+        √ shows a warning with invalid ember-addon#path
+        √ throws an error with flag on
+      valid project
+        √ was able to find ember-resolver even if an empty directory was left
+        √ has dependencies who have their mayHaveAddons correctly set
+        √ validates projectPackageInfo
+        √ shows projectPackageInfo has 0 errors
+        √ shows projectPackageInfo has 1 dependencyPackage
+        √ shows projectPackageInfo has 82devDependencyPackages
+        √ shows projectPackageInfo has 1 in-repo addon named "ember-super-button"
+        √ shows projectPackageInfo has 7 internal addon packages
+        √ shows projectPackageInfo has 7 node-module entries
+    packageInfo contents tests on missing project
+      √ creates a packageInfo object for the missing path
+      √ has 3 errors
+      √ has a "packageDirectoryMissing" error
+      √ has empty "dependencyPackages" and "devDependencyPackages" objects
+    packageInfo contents tests on with-nested-addons project
+      √ shows projectPackageInfo has a "packageJsonMissing" error
+    packageInfo contents tests on external-dependency project
+      √ shows projectPackageInfo finds a dependency above project root
+      √ shows projectPackageInfo finds an external dependency involving a scope
+    discoverProjectAddons
+      within an addon
+        √ lock down dependency orderings (126ms)
+    tests for projectPackageInfo.addonMainPath
+      √ adds .js if not present (709ms)
+      √ doesn't add .js if it is .js (648ms)
+      √ doesn't add .js if it has another extension (727ms)
+      √ allows lookup of existing non-`index.js` `main` entry points (653ms)
+      √ fails invalid other `main` entry points (735ms)
+      √ falls back to `index.js` if `main` and `ember-addon` are not found (640ms)
+      √ falls back to `index.js` if `main` and `ember-addon.main` are not found (675ms)
+
+  models/project.js
+    constructor
+      √ sets up bidirectional instrumentation (691ms)
+    Project.prototype.config
+      √ config() finds and requires config/environment
+      √ config() with no args returns the config corresponding to the current EMBER_ENV
+      √ configPath() returns tests/dummy/config/environment
+      √ calls getAddonsConfig
+      √ returns getAddonsConfig result when configPath is not present
+      memoizes
+        √ memoizes
+        √ considers configPath when memoizing
+      merges getAddonsConfig result with app config
+        √ merges getAddonsConfig result with app config
+        √ getAddonsConfig does NOT override project config
+    Project.prototype.targets
+      when the is a `/config/targets.js` file
+        √ returns the object defined in `/config/targets` if present
+      when there isn't a `/config/targets.js` file
+        √ returns the default targets
+    addons
+      √ returns a listing of all dependencies in the project's package.json
+      √ returns a listing of all dependencies in the project's bower.json
+      √ returns a listing of all ember-cli-addons directly depended on by the project
+      √ returns instances of the addons
+      √ addons get passed the project instance
+      √ returns an instance of an addon that uses `ember-addon-main`
+      √ returns the default blueprints path
+      √ returns a listing of all addon blueprints paths ordered by last loaded when called once
+      √ returns a listing of all addon blueprints paths ordered by last loaded when called twice
+      √ returns a listing of all blueprints paths
+      √ does not include blueprint path relative to root if outside a project
+      √ returns an instance of an addon with an object export
+      √ adds the project itself if it is an addon
+      √ should catch addon constructor errors (684ms)
+    reloadAddon
+      √ sets _addonsInitialized to false
+      √ reloads the package
+      √ initializes the addons
+    reloadPkg
+      √ reloads the package from disk (651ms)
+    emberCLIVersion
+      √ should return the same value as the utility function
+    isEmberCLIProject
+      √ returns false when `ember-cli` is not a dependency
+      √ returns true when `ember-cli` is a devDependency
+      √ returns true when `ember-cli` is a dependency
+    isEmberCLIAddon
+      √ should return true if `ember-addon` is included in keywords
+      √ should return false if `ember-addon` is not included in keywords
+    findAddonByName
+      √ should call initialize addons
+      √ generally should work and defer to findAddonByName utlity
+    bowerDirectory
+      √ should be initialized in constructor
+      √ should be set to directory property in .bowerrc (646ms)
+      √ should default to ‘bower_components’ unless directory property is set in .bowerrc (684ms)
+      √ should default to ‘bower_components’ if .bowerrc is not present (707ms)
+      √ should default to ‘bower_components’ if .bowerrc json is invalid (735ms)
+    .nullProject
+      √ is a singleton
+    generateTestFile()
+      √ returns empty file and shows warning (635ms)
+
+  Server Watcher
+    watcher:change
+      √ logs that the file was changed
+      √ does NOT tracks changes
+    watcher:add
+      √ logs that the file was added
+      √ does NOT track additions
+    watcher:delete
+      √ logs that the file was deleted
+      √ does NOT tracks deletions
+
+  Watcher
+    watcher strategy selection
+      √ selects the events-based watcher by default
+      √ selects the events-based watcher when given events watcher option
+      √ selects the polling watcher when given polling watcher option
+    underlining watcher properly logs change events
+      √ logs that the file was added
+      √ logs that the file was changed
+      √ logs that the file was deleted
+    watcher:buildSuccess
+
+Slowest Nodes (totalTime >= 5%) | Total (avg)
+-+-
+
+      √ tracks events
+
+Slowest Nodes (totalTime >= 5%) | Total (avg)
+-+-
+
+      √ tracks timings
+
+Slowest Nodes (totalTime >= 5%) | Total (avg)
+-+-
+
+      √ logs that the build was successful
+    output
+
+Slowest Nodes (totalTime >= 5%) | Total (avg)
+-+-
+
+      √ with ssl
+
+Slowest Nodes (totalTime >= 5%) | Total (avg)
+-+-
+
+      √ with baseURL
+
+Slowest Nodes (totalTime >= 5%) | Total (avg)
+-+-
+
+      √ with rootURL
+
+Slowest Nodes (totalTime >= 5%) | Total (avg)
+-+-
+
+      √ with empty rootURL
+
+Slowest Nodes (totalTime >= 5%) | Total (avg)
+-+-
+
+      √ with customURL
+    watcher:error
+      √ tracks errors
+      √ watcher error
+      √ watcher buildFailure
+      √ emits without error.file
+      √ emits with error.file with error.line without err.col
+      √ emits with error.file without error.line with err.col
+      √ emits with error.file with error.line with err.col
+    watcher:change afterError
+
+Slowest Nodes (totalTime >= 5%) | Total (avg)
+-+-
+
+      √ log that the build was green
+
+Slowest Nodes (totalTime >= 5%) | Total (avg)
+-+-
+
+      √ keep tracking analytics
+
+  dependencies
+    in package.json
+      √ are locked down for pre-1.0 versions
+
+  .ember-cli leek options
+    √ should contain the leek options from .ember-cli file
+
+  .ember-cli
+    √ local settings take precedence over global settings
+
+  addon install task
+    when no save flag specified in blueprintOptions
+      √ calls npm install with --save-dev as a default
+    when save flag specified in blueprintOptions
+      √ calls npm install with --save
+    when saveDev flag specified in blueprintOptions
+      √ calls npm install with --save-dev
+    when both save and saveDev flag specified in blueprintOptions
+      √ calls npm install with --save
+
+  BowerInstallTask
+    ensureBower()
+      √ resolves if "bower" property is set
+      √ imports "bower" if it can be resolved
+      √ install "bower" if it can not be resolved
+      √ pass other resolve errors on
+      √ pass install errors on
+
+  build-watch task
+    onInterrupt
+      √ fulfills the run promise and cleans up the builder (727ms)
+
+  git-init
+    √ correctly initializes git if git is around, and more or less works
+    √ skips initializing git, if `git --version` fails
+    √ includes the HOME environment variable in the environment passed to git
+    skipGit: true
+      √ does not initialize git
+
+  npm install task
+    √ skips npm installs if there is no package.json
+
+  NpmTask
+    checkNpmVersion
+      √ resolves when a compatible version is found
+      √ resolves with warning when a newer version is found
+      √ rejects when an older version is found
+      √ rejects when npm is not found
+      √ rejects when npm returns an unreadable version
+      √ rejects when an unknown error is thrown
+    checkYarn
+      √ resolves when yarn is found
+      √ rejects when yarn is not found
+      √ rejects when an unknown error is thrown
+    findPackageManager
+      √ resolves when no yarn.lock file was found and npm is compatible
+      √ resolves when no yarn.lock file was found and npm is incompatible
+      √ resolves when yarn.lock file and yarn were found and sets useYarn = true
+      √ resolves when yarn.lock file was found, yarn was not found and npm is compatible
+      √ rejects when yarn.lock file was found, yarn was not found and npm is incompatible
+      √ resolves when yarn is requested and found
+      √ rejects with SilentError when yarn is requested but not found
+      √ rejects when yarn is requested and yarn check errors
+      √ resolves when npm is requested and compatible
+      √ rejects when npm is requested but incompatible
+    toYarnArgs
+      √ converts "npm install --no-optional" to "yarn install --ignore-optional"
+      √ converts "npm install --save foobar" to "yarn add foobar"
+      √ converts "npm install --save-dev --save-exact foo" to "yarn add --dev --exact foo"
+      √ converts "npm uninstall bar" to "yarn remove bar"
+      √ throws when "yarn install" is called with packages
+
+  serve task
+    run with path
+      √ Throws error if path doesn't exist (647ms)
+      √ Serves ember app from given path (672ms)
+    onInterrupt
+      √ fulfills the run promise and cleans up the builder (656ms)
+
+  express-server: processAppMiddlewares
+    √ has a good error message if a file "server.js" exists, but does not export a function
+    √ has a good error message if a file "server/index.js" exists, but does not export a function
+    √ returns values returned by server/index.js
+    √ returns values returned by server.js
+    √ returns undefined if middleware files does not exists
+    √ allow non MODULE_NOT_FOUND errors bubbling if issue happens during module initialization
+
+  express-server
+    √ address in use (907ms)
+    displayHost
+      √ should use the specified host if specified
+      √ should use the use localhost if host is not specified
+    output
+      √ address in use
+    behaviour
+      √ starts with ssl if ssl option is passed (53ms)
+      √ app middlewares are processed before the proxy (128ms)
+      √ works with a regular express app
+      compression
+        √ uses compression by default for long texts
+        √ does not use compression even for long texts when the x-no-compression header is sent in the response
+        √ does not use compression for server sent events
+      with proxy
+        √ bypasses proxy for /
+        √ bypasses proxy for files that exist
+[0mGET /api/get [32m200[0m 3.701 ms - -[0m
+        √ proxies GET
+[0mPUT /api/put [32m200[0m 1.910 ms - -[0m
+        √ proxies PUT
+[0mPOST /api/post [32m200[0m 1.870 ms - -[0m
+        √ proxies POST
+[0mDELETE /api/delete [32m200[0m 1.549 ms - -[0m
+        √ proxies DELETE
+        √ proxies websockets (49ms)
+[0mGET /api/get [32m200[0m 1.585 ms - -[0m
+        √ proxies when accept contains */*
+      proxy with subdomain
+[0mGET /api/get [32m200[0m 3.326 ms - -[0m
+        √ proxies GET
+[0mPUT /api/put [32m204[0m 0.671 ms - -[0m
+        √ proxies PUT
+[0mPOST /api/post [32m201[0m 0.695 ms - -[0m
+        √ proxies POST
+[0mDELETE /api/delete [32m204[0m 1.143 ms - -[0m
+        √ proxies DELETE
+[0mGET /api/get [32m200[0m 0.655 ms - -[0m
+        √ proxies when accept contains */*
+      without proxy
+        √ serves index.html when file not found with auto/history location
+        √ GET /tests serves tests/index.html for mime of */* (hash location)
+        √ GET /tests serves tests/index.html for mime of */* (auto location)
+        √ GET /tests/whatever serves tests/index.html when file not found
+        √ GET /tests/an-existing-file.tla serves tests/an-existing-file.tla if it is found
+        √ serves index.html when file not found (with rootURL) with auto/history location
+        √ serves index.html when file not found (with rootURL) with custom history location
+        √ returns a 404 when file not found with hash location
+        √ files that exist in broccoli directory are served up
+        √ serves static asset up from build output without a period in name
+        √ serves a static wasm file up from build output with correct Content-Type header
+        √ serves static asset up from build output without a period in name (with rootURL)
+      addons
+        √ calls processAddonMiddlewares upon start
+      addon middleware
+        √ calls serverMiddleware on the addons on start
+        √ calls serverMiddleware on the addons on restart
+      addon middleware is async
+        √ waits for async middleware to complete before the next middleware (67ms)
+      addon middleware bubble errors
+        √ up to server start
+      app middleware
+        √ calls processAppMiddlewares upon start
+        √ calls processAppMiddlewares upon restart
+        √ includes httpServer instance in options
+      serverWatcherDidChange
+        √ is called on file change
+        √ schedules a server restart
+      scheduleServerRestart
+        √ schedules exactly one call of restartHttpServer (236ms)
+      restartHttpServer
+        √ restarts the server
+        √ restarts the server again if one or more files change during a previous restart
+        √ emits the restart event
+
+  livereload-server
+    start
+      √ does not start the server if `liveReload` option is not true
+      √ informs of error during startup with custom port
+      √ starts with custom host, custom port
+      √ Livereload responds to livereload requests and returns livereload file
+    start with https
+      √ correctly runs in https mode
+      √ informs of error during startup
+      √ correctly runs in https mode with custom port
+    express server restart
+      √ triggers when the express server restarts
+      √ triggers when the express server restarts with custom port
+    livereload changes
+      watcher events
+        √ triggers a livereload change on a watcher change event
+        √ triggers a livereload change on a watcher error event
+        √ does not trigger a livereload change on other watcher events
+        √ recovers from error when file is already cached in previous cache step
+        filter pattern
+          √ shouldTriggerReload must be true if there are no liveReloadFilterPatterns
+          √ shouldTriggerReload is true when no liveReloadFilterPatterns matches the filePath
+          √ shouldTriggerReload is false when one or more of the liveReloadFilterPatterns matches filePath
+          √ shouldTriggerReload writes a banner after skipping reload for a file
+          √ triggers the livereload server of a change when no pattern matches
+          √ does not trigger livereload server of a change when there is a pattern match
+      specific files
+        √ triggers livereload with modified files
+        √ triggers livereload with deleted directories
+        √ triggers livereload ignoring source map files
+        √ triggers livereload with "LiveReload files" if no results.directory was provided
+    livereload changes with custom port
+      watcher events
+        √ triggers a livereload change on a watcher change event
+        √ triggers a livereload change on a watcher error event
+        √ does not trigger a livereload change on other watcher events
+        √ recovers from error when file is already cached in previous cache step
+        filter pattern
+          √ shouldTriggerReload must be true if there are no liveReloadFilterPatterns
+          √ shouldTriggerReload is true when no liveReloadFilterPatterns matches the filePath
+          √ shouldTriggerReload is false when one or more of the liveReloadFilterPatterns matches filePath
+          √ shouldTriggerReload writes a banner after skipping reload for a file
+          √ triggers the livereload server of a change when no pattern matches
+          √ does not trigger livereload server of a change when there is a pattern match
+      specific files
+        √ triggers livereload with modified files
+        √ triggers livereload with deleted directories
+        √ triggers livereload ignoring source map files
+        √ triggers livereload with "LiveReload files" if no results.directory was provided
+
+  HistorySupportAddon
+    .serverMiddleware
+      √ add middleware when locationType is auto
+      √ add middleware when locationType is history
+      √ add middleware when locationType is an unknown type
+      √ add middleware when historySupportMiddleware is true
+      √ do not add middleware when historySupportMiddleware is false and locationType is history
+
+  proxy-server
+DEPRECATION: Upgrade ember-cli-inject-live-reload version to 1.10.0 or above
+    √ bypass livereload request
+
+  TestServerAddon
+    .serverMiddleware
+      √ invokes next when the watcher succeeds
+      √ invokes next when the watcher fails
+      √ allows baseURL containing `+` character
+      √ allows rootURL containing `+` character
+
+  test server
+    √ transforms and sets defaultOptions in testem and invokes testem properly (656ms)
+    completion
+      firstRun
+        √ rejects with testem exceptions
+        √ rejects with exit status (1)
+        √ resolves with exit status (0)
+      restart
+        √ rejects with testem exceptions
+
+  test task test
+<testsuite name="Testem Tests" tests="1" skipped="0" failures="0" timestamp="Wed May 27 2020 08:26:53 GMT-0500 (Central Daylight Time)" time="0.677"><testcase classname="Dummy" name="error" time="0"/></testsuite>
+    √ call testem middleware with options (3015ms)
+    √ transforms options for testem configuration (671ms)
+    √ supports conditionally passing SSL configuration forward (759ms)
+
+  command-generator
+    √ invoke passes options
+    √ builds the proper invocation
+
+  ember-app-utils
+    rootURL
+      √ `rootURL` regex accepts space-padded padded variation
+    EMBER_ENV
+      √ `EMBER_ENV` regex accepts space-padded padded variation
+    MODULE_PREFIX
+      √ `MODULE_PREFIX` regex accepts space-padded padded variation
+    contentFor
+      √ `content-for` regex returns all matches presents in a same line
+      √ returns an empty string if invalid type is specified
+      "head"
+        √ returns `<meta>` tag by default
+        √ handles multibyte characters in `<meta>` tag
+        √ omits `<meta>` tag if `storeConfigInMeta` is false
+        √ returns `<base>` tag if `locationType` is "auto"
+        √ returns `<base>` tag if `locationType` is "none"
+        √ omits `<base>` tag if `locationType` is "hash"
+        √ omits `<base>` tag if `baseURL` is `undefined`
+      "config-module"
+        √ returns `<meta>` tag gathering snippet by default
+        √ returns "raw" config if `storeConfigInMeta` is false
+      "app-boot"
+        √ returns application bootstrap snippet by default
+        √ omits application bootstrap snippet if `autoRun` is false
+      "test-body-footer"
+        √ returns `<script> tag with a failed test load assertion`
+      for addons
+        √ allows later addons to inspect previous content
+        √ calls `contentFor` on addons
+    calculateBaseTag
+      √ generates a base tag correctly for location: auto
+      √ generates a base tag correctly for location: history
+      √ returns an empty string if location is "hash"
+      √ returns an empty string if the url is null
+      √ returns an empty string if the url is undefined
+      √ returns an empty string if the url is empty string
+    convertObjectToString
+      √ transforms config object into a string
+      √ returns empty object string for "falsy" values
+    normalizeUrl
+      √ transforms input values to valid urls
+      √ returns an empty string for `null`, `undefined` and empty string
+
+  findAddonByName
+    √ should return the foo addon from name
+    √ should return the foo-bar addon from name when a foo also exists
+    √ should return the bar-pkg addon from package name
+    √ should return null if addon doesn't exist
+    √ should not return an addon that is a substring of requested name
+    √ should not guess addon name from string with slashes
+    √ matches scoped packages when names match exactly
+    √ matches unscoped name of scoped package when no exact match is found with logging
+    √ matches unscoped name of scoped package repeatedly when no exact match is found with logging
+    √ if exact match is found, it "wins" over unscoped matches
+    √ if exact match by addon name is found, it "wins" with a warning
+    √ if exact match by addon name is found, it "wins" repeatedly
+
+  find-build-file
+    √ does not throw an error when the file is valid syntax
+    √ throws a SyntaxError if the file contains a syntax mistake
+    √ does not throw an error when the file is mss
+
+  format-package-list
+    √ correctly formats package list with 1 item
+    √ correctly formats package list with 2 items
+    √ correctly formats package list with 3 items
+    √ correctly formats package list with 4 items
+    √ correctly formats package list with 100 items
+    √ returns generic "dependencies" without input
+    √ returns generic "dependencies" for invalid input
+    √ returns generic "dependencies" for empty input
+
+  getPackageBaseName
+    √ should return the full package name if it is unscoped
+    √ should return the full name when scoped
+    √ should strip away version numbers
+
+  is-git-url
+    √ recognizes git-style urls in various formats
+
+  heimdall-progress
+    √ supports the root node
+    √ complex example
+    .format
+      √ works
+
+  insertIntoFile()
+    √ will create the file if not already existing
+    √ will not create the file if not already existing and creation disabled
+    √ will insert into the file if it already exists
+    √ will not insert into the file if it already contains the content
+    √ will insert into the file if it already contains the content if force option is passed
+    √ will insert into the file after a specified string if options.after is specified
+    √ will insert into the file after the first instance of options.after only
+    √ will insert into the file before a specified string if options.before is specified
+    √ will insert into the file before the first instance of options.before only
+    √ it will make no change if options.after is not found in the original
+    √ it will make no change if options.before is not found in the original
+    √ will return the file path
+    regex
+      √ options.after supports regex
+      √ options.before supports regex
+      √ options.after doesn't treat strings as regex
+      √ options.before doesn't treat strings as regex
+
+  isLiveReloadRequest()
+    √ /livereload
+DEPRECATION: Upgrade ember-cli-inject-live-reload version to 1.10.0 or above
+    √ path/livereload
+DEPRECATION: Upgrade ember-cli-inject-live-reload version to 1.10.0 or above
+    √ path/path/livereload
+    √ livereload
+    √ livereload/path
+    √ /livereload.js
+    √ path/livereload.js
+    √ path/livereload/path
+
+  lintAddonsByType
+    √ calls lintTree on the addon
+    √ filters out tree if `lintTree` returns false-y
+
+  load-config
+    √ loads and parses a yml file
+    √ loads and parses a yaml file
+    √ loads and parses a json file
+    √ loads a vanilla file
+    √ works across directories
+
+  publishes the appropriate config files
+    √ has the config files
+
+  MarkdownColor
+    - parses default markdown
+    - parses color tokens
+    - parses custom tokens
+    - accepts tokens on instantiation
+    - parses markdown files
+    - allows tokens inside other token bounds
+
+  open-editor
+    √ throws if EDITOR is not set
+    √ spawns EDITOR with passed file
+    √ spawns EDITOR with passed file (rejection scenario)
+    √ throws if no file option is provided
+    .canEdit()
+      √ returns false if EDITOR is not set
+      √ returns true if EDITOR is set
+
+  PackageCache
+    √ defaults rootPath
+    √ successfully uses getter/setter
+    √ _cleanDirs
+    √ _readManifest
+    √ _writeManifest (63ms)
+    √ _checkManifest
+    √ _removeLinks
+    √ _restoreLinks
+    √ create (169ms)
+    √ get
+    √ destroy
+    √ clone
+    √ succeeds at a clean install (2297ms)
+    _install
+      √ Triggers install.
+      √ Attempts to link when it is supposed to.
+    _upgrade (yarn)
+      without yarn.lock
+        √ Trigger upgrade.
+        √ Make sure it unlinks, upgrades, re-links.
+        √ Make sure multiple invocations lock out.
+      with yarn.lock
+        √ Trigger upgrade.
+        √ Make sure it unlinks, upgrades, re-links.
+        √ Make sure multiple invocations lock out.
+        √ locks out _upgrade after _install
+    _upgrade (bower)
+      √ Trigger upgrade.
+      √ Make sure it unlinks, updates, re-links.
+      √ Make sure multiple invocations lock out.
+      √ locks out _upgrade after _install
+
+  platform-checker
+    √ checkIsDeprecated
+    √ checkIsValid
+    √ checkIsTested
+    known versions
+      √ v8.0.0
+      √ v10.0.0
+      √ v12.0.0
+      √ v13.0.0
+      √ v14.0.0
+      √ v15.0.0
+
+  printCommand
+    √ handles all possible options
+    √ can have no margin or no options
+    √ can have an uncolored description
+    √ does not print with empty aliases
+    √ quotes empty strings
+
+  process-template
+    √ successfully transforms a template
+
+  stringify-and-normalize
+    √ indents 2 spaces and ends in newline
+
+  symbol
+    √ expect format
+    √ does not collide with another symbol of its own debug name
+
+  lib/utilities/valid-lang-flag
+    Valid lang Flags
+      √ 'en' is a valid language code; message is null
+      √ 'en-gb' is a valid language code; message is null
+      √ 'en-GB' is a valid language code; message is null
+      √ 'EN' is a valid language code; message is null
+      √ 'EN-gb' is a valid language code; message is null
+      √ 'EN-GB' is a valid language code; message is null
+    Invalid lang Flags: Misc.
+      √ '' is an invalid language argument; not related misuse cases
+      √ '..-..' is an invalid language argument; not related misuse cases
+      √ '12-34' is an invalid language argument; not related misuse cases
+      √ ' en' is an invalid language argument; not related misuse cases
+      √ 'en ' is an invalid language argument; not related misuse cases
+      √ 'en-uk' is an invalid language argument; not related misuse cases
+      √ 'en-UK' is an invalid language argument; not related misuse cases
+      √ 'EN-uk' is an invalid language argument; not related misuse cases
+      √ 'EN-UK' is an invalid language argument; not related misuse cases
+      √ 'en-cockney' is an invalid language argument; not related misuse cases
+    Invalid Language Flags, Misuse case: Programming Languages
+      √ 'typescript' is an invalid lang argument; possibly an attempt to set app programming language
+      √ 'javascript' is an invalid lang argument; possibly an attempt to set app programming language
+      √ 'html' is an invalid lang argument; possibly an attempt to set app programming language
+      √ 'glimmer' is an invalid lang argument; possibly an attempt to set app programming language
+      √ 'emcas' is an invalid lang argument; possibly an attempt to set app programming language
+      √ 'es6' is an invalid lang argument; possibly an attempt to set app programming language
+      √ 'node' is an invalid lang argument; possibly an attempt to set app programming language
+      √ 'handlebars' is an invalid lang argument; possibly an attempt to set app programming language
+    Invalid Language Flags, Misuse case: ember-cli `new` and `init` options / aliases
+      √ '--disable-analytics' is an invalid language argument; possibly an absorbed ember-cli command option
+      √ '--watcher=node' is an invalid language argument; possibly an absorbed ember-cli command option
+      √ '--dry-run' is an invalid language argument; possibly an absorbed ember-cli command option
+      √ '-d' is an invalid language argument; possibly an absorbed ember-cli command option
+      √ '--verbose' is an invalid language argument; possibly an absorbed ember-cli command option
+      √ '-v' is an invalid language argument; possibly an absorbed ember-cli command option
+      √ '--blueprint' is an invalid language argument; possibly an absorbed ember-cli command option
+      √ '-b' is an invalid language argument; possibly an absorbed ember-cli command option
+      √ '--skip-npm' is an invalid language argument; possibly an absorbed ember-cli command option
+      √ '-sn' is an invalid language argument; possibly an absorbed ember-cli command option
+      √ '--skip-bower' is an invalid language argument; possibly an absorbed ember-cli command option
+      √ '-sb' is an invalid language argument; possibly an absorbed ember-cli command option
+      √ '--welcome' is an invalid language argument; possibly an absorbed ember-cli command option
+      √ '--no-welcome' is an invalid language argument; possibly an absorbed ember-cli command option
+      √ '--yarn' is an invalid language argument; possibly an absorbed ember-cli command option
+      √ '--name' is an invalid language argument; possibly an absorbed ember-cli command option
+      √ '--skip-git' is an invalid language argument; possibly an absorbed ember-cli command option
+      √ '-sg' is an invalid language argument; possibly an absorbed ember-cli command option
+      √ '--directory' is an invalid language argument; possibly an absorbed ember-cli command option
+      √ '-dir' is an invalid language argument; possibly an absorbed ember-cli command option
+
+  lib/utilities/valid-project-name
+    isValidProjectName
+      √ 'app' is an invalid name
+      √ 'addon' is an invalid name
+      √ 'public' is an invalid name
+      √ '.' is an invalid name
+      √ 'ember' is an invalid name
+      √ 'so-cool.' is an invalid name
+      √ 'vendor' is an invalid name
+      √ 'test' is an invalid name
+      √ '1234test' is an invalid name
+      √ 'application' is an invalid name
+      √ '@foo/bar/baz' is an invalid name
+      √ 'my-app' is a valid name
+      √ 'foobar' is a valid name
+      √ 'testbaz' is a valid name
+      √ '@foo/bar' is a valid name
+
+  version-utils
+    √ `isDevelopment` returns false if a release version was passed in
+    √ `isDevelopment` returns true if a development version was passed in
+
+  walk-up-path
+    √ walks up paths
+    √ walks up paths beginning with a slash
+    √ walks up paths that have same folder names
+
+  will interrupt process
+    capture
+      √ throws if already captured
+      √ throws if the process is not an EventEmitter instance
+      √ sets process maxListeners count
+    addHandler
+      √ throws if process is not captured
+      √ throws if process is released
+    capture-exit
+      √ adds exit handler
+      √ removes exit handler
+      √ removes all exit handlers
+    process interruption signal listeners
+      √ sets up interruption signal listeners when the first handler added
+      √ sets up interruption signal listeners only once
+      √ cleans up interruption signal listener
+      √ doesn't clean up interruption signal listeners if there are remaining handlers
+      √ cleans up all interruption signal listeners
+    Windows CTRL + C Capture
+      √ exits on CTRL+C when TTY
+      √ adds and reverts rawMode on Windows
+      √ does not enable raw capture when not a Windows
+      √ does not enable raw capture when not a TTY
+
+  windows-admin
+    on windows
+      can symlink
+        √ attempts to determine admin rights if Windows
+      cannot symlink
+        attempts to determine admin rights
+          √ gets STDERR during NET SESSION exec
+          √ gets no stdrrduring NET  SESSION exec
+    on linux
+      √ does not attempt to determine admin
+    on darwin
+      √ does not attempt to determine admin
+
+
+  1387 passing (10m)
+  14 pending
+
+Mocha Tests Running Time: 591858.085ms

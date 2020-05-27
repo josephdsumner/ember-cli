@@ -75,7 +75,7 @@ module.exports = {
           key: 'lang',
           default: '',
           description: 'Sets the base human language of the application via index.html',
-          aliases: ['l', 'lang'],
+          aliases: ['l'],
           required: false
         }
       ],
@@ -429,7 +429,7 @@ module.exports = {
           key: 'lang',
           default: '',
           description: 'Sets the base human language of the application via index.html',
-          aliases: ['l', 'lang'],
+          aliases: ['l'],
           required: false
         }
       ],
@@ -542,7 +542,7 @@ module.exports = {
           key: 'lang',
           default: '',
           description: 'Sets the base human language of the application via index.html',
-          aliases: ['l', 'lang'],
+          aliases: ['l'],
           required: false
         }
       ],

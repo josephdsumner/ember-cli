@@ -5,7 +5,7 @@ const expect = require('chai').expect;
 
 describe('lib/utilities/valid-lang-flag', function () {
 
-  describe('Valid Language Flags', function () {
+  describe('Valid lang Flags', function () {
     [
       'en',
       'en-gb',
@@ -22,7 +22,7 @@ describe('lib/utilities/valid-lang-flag', function () {
     });
   });
 
-  describe('Invalid Language Flags: Misc.', function ()  {
+  describe('Invalid lang Flags: Misc.', function ()  {
     [
       '',
       '..-..',
@@ -58,7 +58,7 @@ describe('lib/utilities/valid-lang-flag', function () {
       'node',
       'handlebars'
     ].forEach((langArg) => {
-      it(`'${langArg}' is an invalid language argument; possibly an attempt to set app programming language`, function () {
+      it(`'${langArg}' is an invalid lang argument; possibly an attempt to set app programming language`, function () {
         expect(getLangArgResult(langArg).isValidLangCode).to.not.be.ok;
         expect(getLangArgResult(langArg).message).to.be.ok;
         expect(getLangArgResult(langArg).message).to.include('An error with the \`--lang\` flag returned the following message:');

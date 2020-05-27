@@ -21,7 +21,7 @@ module.exports = {
     let name = stringUtil.dasherize(rawName);
     let namespace = stringUtil.classify(rawName);
 
-    let language = options.language;
+    let lang = options.lang;
 
 
 
@@ -34,7 +34,7 @@ module.exports = {
       welcome: options.welcome,
       blueprint: 'app',
       
-      language,
+      lang,
     };
   },
 

@@ -145,6 +145,9 @@ module.exports = {
     }
 
     return {
+    let lang = options.lang;
+
+       return {
       name,
       modulePrefix: name,
       namespace,
@@ -156,6 +159,9 @@ module.exports = {
       welcome: options.welcome,
       blueprint: 'addon',
       blueprintOptions,
+
+      lang
+
     };
   },
 

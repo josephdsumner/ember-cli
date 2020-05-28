@@ -227,4 +227,84 @@ describe('init command', function () {
       expect(reason).to.equal('Called run');
     });
   });
+
+  // [WIP] ember init --lang flag
+  // -------------------------------
+  // Good: Default
+  it('ember init without --lang flag (default) has no error message before run; blueprint has lang key of empty String', async function () {
+    tasks.InstallBlueprint = Task.extend({
+      run(blueprintOpts) {
+        expect(blueprintOpts).to.contain.keys('lang');
+        expect(blueprintOpts.lang).to.equal('');
+        return Promise.reject('Called run');
+      },
+    });
+    buildCommand();
+    let result = await expect(command.validateAndRun(['foo', '--skip-npm', '--skip-bower', '--skip-git'])).to.be.rejected;
+    expect(result).to.equal('Called run');
+  });
+  
+
+  // Good: Correct Usage
+  it('ember init with --lang flag and valid code has no error message before run; blueprint has lang key of input String', async function () {
+    tasks.InstallBlueprint = Task.extend({
+      run(blueprintOpts) {
+        expect(blueprintOpts).to.contain.keys('lang');
+        expect(blueprintOpts.lang).to.equal('en-US');
+        return Promise.reject('Called run');
+      },
+    });
+    buildCommand();
+    let result = await expect(command.validateAndRun(['foo', '--skip-npm', '--skip-bower', '--skip-git', '--lang=en-US'])).to.be.rejected;
+    expect(result).to.equal('Called run');
+  });
+  
+
+  // Misuse: possibly an attempt to set app programming language
+  it('ember init with --lang flag and programming language fails with an error message', async function () {
+    let err = await expect(command.validateAndRun(['foo', '--skip-npm', '--skip-bower', '--skip-git', '--lang=typescript'])).to.be.rejected;
+    expect(err.name).to.equal('SilentError');
+    expect(err.message).to.be.ok;
+    expect(err.message).to.include('An error with the \`--lang\` flag returned the following message:');
+    expect(err.message).to.include('Information about using the \`--lang\` flag:');
+    expect(err.message).to.include('set the app programming language');
+    expect(err.message).to.include('typescript');
+    expect(err.message).to.not.include('ember-cli command option');
+  });
+
+  // Misuse: No specification + declared option
+  it('ember init with --lang flag but no specification fails with an error message; absorbs ember-cli option (declared)', async function () {
+    let err = await expect(command.validateAndRun(['foo', '--skip-npm', '--skip-bower', '--lang', '--skip-git'])).to.be.rejected;
+    expect(err.name).to.equal('SilentError');
+    expect(err.message).to.be.ok;
+    expect(err.message).to.include('An error with the \`--lang\` flag returned the following message:');
+    expect(err.message).to.include('Information about using the \`--lang\` flag:');
+    expect(err.message).to.not.include('set the app programming language');
+    expect(err.message).to.include('ember-cli command option');
+    expect(err.message).to.include('--skip-git');
+
+  });  
+
+  // // Misuse: No specification + hidden option
+  // it('ember init with --lang flag but no specification fails with an error message; absorbs appended ember-cli option (hidden)', async function () {
+  //   let err = await expect(command.validateAndRun(['foo', '--skip-npm', '--skip-bower', '--skip-git', '--lang'])).to.be.rejected;
+  //   expect(err.name).to.equal('SilentError');
+  //   expect(err.message).to.be.ok;
+  //   expect(err.message).to.not.include('set the app programming language');
+  //   expect(err.message).to.include('ember-cli command option');
+  //   expect(err.message).to.include('--disable-analytics');
+  // });  
+  
+  // Misuse: Invalid Country Code
+  it('ember init with --lang flag and invalid code fails with an error message', async function () {
+    let err = await expect(command.validateAndRun(['foo', '--skip-npm', '--skip-bower', '--skip-git', '--lang=en-UK'])).to.be.rejected;
+    expect(err.name).to.equal('SilentError');
+    expect(err.message).to.be.ok;
+    expect(err.message).to.include('An error with the \`--lang\` flag returned the following message:');
+    expect(err.message).to.include('Information about using the \`--lang\` flag:');
+    expect(err.message).to.not.include('set the app programming language');
+    expect(err.message).to.not.include('ember-cli command option');
+  });
+
+
 });

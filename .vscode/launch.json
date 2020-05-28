@@ -1,0 +1,88 @@
+{
+  "configurations": [
+    {
+      "name": "mocha unit util valid-lang-flag",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${workspaceFolder}\\node_modules\\.bin\\mocha",
+      "runtimeArgs": [
+        "${workspaceFolder}\\tests\\unit\\utilities\\valid-lang-flag-test.js",
+      ],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "mocha acceptance new-test --grep lang",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${workspaceFolder}\\node_modules\\.bin\\mocha",
+      "runtimeArgs": [
+        "${workspaceFolder}\\tests\\acceptance\\new-test.js",
+        "--grep=lang"
+      ],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "mocha acceptance init-test --grep lang",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${workspaceFolder}\\node_modules\\.bin\\mocha",
+      "runtimeArgs": [
+        "${workspaceFolder}\\tests\\acceptance\\init-test.js",
+        "--grep=lang"
+      ],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "mocha acceptance addon-dummy-generate-test",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${workspaceFolder}\\node_modules\\.bin\\mocha",
+      "runtimeArgs": [
+        "${workspaceFolder}\\tests\\acceptance\\addon-dummy-generate-test.js",
+        "--grep=lang"
+      ],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "mocha acceptance help-test",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${workspaceFolder}\\node_modules\\.bin\\mocha",
+      "runtimeArgs": [
+        "${workspaceFolder}\\tests\\acceptance\\help-test.js"
+      ],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "mocha acceptance --grep lang",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${workspaceFolder}\\node_modules\\.bin\\mocha",
+      "runtimeArgs": [
+        "${workspaceFolder}\\tests\\acceptance\\*-test.js",
+        "--grep=lang"
+      ],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "mocha unit new",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${workspaceFolder}\\node_modules\\.bin\\mocha",
+      "runtimeArgs": [
+        "${workspaceFolder}\\tests\\unit\\commands\\new-test.js"
+      ],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "mocha unit init",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${workspaceFolder}\\node_modules\\.bin\\mocha",
+      "runtimeArgs": [
+        "${workspaceFolder}\\tests\\unit\\commands\\init-test.js"
+      ],
+      "console": "integratedTerminal"
+    },
+  ]
+}

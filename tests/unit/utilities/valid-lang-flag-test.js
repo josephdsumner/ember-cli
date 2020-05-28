@@ -49,17 +49,40 @@ describe('lib/utilities/valid-lang-flag', function () {
 
   describe('Invalid Language Flags, Misuse case: Programming Languages', function ()  {
     [
-      'typescript',
-      'javascript',
-      'html',
-      'glimmer',
-      'emcas',
-      'es6',
-      'node',
-      'handlebars'
+      'javascript', 'js', '.js',
+      'emcascript2015', 'emcascript6', 'es6',
+      'emcascript2016', 'emcascript7', 'es7',
+      'emcascript2017', 'emcascript8', 'es8',
+      'emcascript2018', 'emcascript9', 'es9',
+      'emcascript2019', 'emcascript10', 'es10',
+    
+      'typescript', 'ts', '.ts',
+    
+      'node', 'node.js',
+    
+      'handlebars', 'hbs', '.hbs',
+      'glimmer', 'glimmer.js', 'glimmer-vm',
+    
+      'markup',
+      'markdown', 'md', '.md',
+      'html', '.html',
+      'htm', '.htm',
+      'html5', 'html4',
+      'xml', '.xml',
+      'xhtml', '.xhtml',
+      'xht', '.xht',
+    
+      'css', '.css', 
+      'scss', '.scss', 
+      'sass', '.sass',
+
+      // + case-insensitivity
+      'JavaScript', 'JAVASCRIPT', 'JS', '.JS',
+      'EMCAScript2015', 'EMCAScript6', 'ES6',
+      'TypeScript', 'TYPESCRIPT', 'TS', '.TS',
+
     ].forEach((langArg) => {
       it(`'${langArg}' is an invalid lang argument; possibly an attempt to set app programming language`, function () {
-        expect(getLangArgResult(langArg).isValidLangCode).to.not.be.ok;
         expect(getLangArgResult(langArg).message).to.be.ok;
         expect(getLangArgResult(langArg).message).to.include('An error with the \`--lang\` flag returned the following message:');
         expect(getLangArgResult(langArg).message).to.include('Information about using the \`--lang\` flag:');

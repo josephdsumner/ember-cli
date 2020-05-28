@@ -32,6 +32,9 @@ module.exports = {
         [!options.welcome && '"--no-welcome"', options.yarn && '"--yarn"'].filter(Boolean).join(',\n            ') +
         outdent;
     }
+    let lang = options.lang;
+
+
 
     return {
       name,
@@ -42,6 +45,8 @@ module.exports = {
       welcome: options.welcome,
       blueprint: 'app',
       blueprintOptions,
+      
+      lang,
     };
   },
 

@@ -49,32 +49,33 @@ describe('lib/utilities/valid-lang-flag', function () {
 
   describe('Invalid Language Flags, Misuse case: Programming Languages', function ()  {
     [
-      'javascript', 'js', '.js',
+      'javascript', '.js', 'js',
       'emcascript2015', 'emcascript6', 'es6',
       'emcascript2016', 'emcascript7', 'es7',
       'emcascript2017', 'emcascript8', 'es8',
       'emcascript2018', 'emcascript9', 'es9',
       'emcascript2019', 'emcascript10', 'es10',
     
-      'typescript', 'ts', '.ts',
+      'typescript', '.ts',
+      // Edge case: `ts` is a valid lang code for `Tsonga`
+      'ts',
     
-      'node', 'node.js',
-    
-      'handlebars', 'hbs', '.hbs',
+      'node.js', 'node', 
+      'handlebars', '.hbs', 'hbs',
       'glimmer', 'glimmer.js', 'glimmer-vm',
     
-      'markup',
-      'markdown', 'md', '.md',
-      'html', '.html',
-      'htm', '.htm',
-      'html5', 'html4',
-      'xml', '.xml',
-      'xhtml', '.xhtml',
-      'xht', '.xht',
+      'markdown', 'markup', 'html5', 'html4', 
+      '.md', '.html', '.htm', '.xhtml', '.xml', '.xht',
+       'md',  'html',  'htm',  'xhtml', 
+      // Edge case: `xml` is a valid code for `Malaysian Sign Language`
+      'xml', 
+      // Edge case: `xht` is a valid code for `Hattic`
+      'xht', 
     
-      'css', '.css', 
-      'scss', '.scss', 
-      'sass', '.sass',
+      '.sass', '.scss', '.css', 
+       'sass',  'scss', 
+      // Edge case: `css` is a valid code for `Costanoan`
+      'css', 
 
       // + case-insensitivity
       'JavaScript', 'JAVASCRIPT', 'JS', '.JS',
@@ -88,6 +89,10 @@ describe('lib/utilities/valid-lang-flag', function () {
         expect(getLangArgResult(langArg).message).to.include('Information about using the \`--lang\` flag:');
         expect(getLangArgResult(langArg).message).to.include('set the app programming language');
         expect(getLangArgResult(langArg).result).to.be.false;
+        // Run this before commiting updates to programming languages list
+        // defined in the utility in order to identify edge cases
+        // Comment out during normal operation.
+        // expect(getLangArgResult(langArg).isValidLangCode).to.be.false;
       });
     });
   });

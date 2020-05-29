@@ -143,11 +143,10 @@ module.exports = {
         [options.welcome && '"--welcome"', options.yarn && '"--yarn"'].filter(Boolean).join(',\n            ') +
         outdent;
     }
-
-    return {
+    
     let lang = options.lang;
 
-       return {
+    return {
       name,
       modulePrefix: name,
       namespace,

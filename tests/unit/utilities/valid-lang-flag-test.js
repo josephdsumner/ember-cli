@@ -55,7 +55,7 @@ describe('lib/utilities/valid-lang-flag', function () {
       'emcascript2017', 'emcascript8', 'es8',
       'emcascript2018', 'emcascript9', 'es9',
       'emcascript2019', 'emcascript10', 'es10',
-
+    
       'typescript', '.ts',
       // Edge case: `ts` is a valid lang code for `Tsonga`
       'ts',
@@ -72,31 +72,6 @@ describe('lib/utilities/valid-lang-flag', function () {
       // Edge case: `xht` is a valid code for `Hattic`
       'xht', 
     
-      '.sass', '.scss', '.css', 
-       'sass',  'scss', 
-      // Edge case: `css` is a valid code for `Costanoan`
-      'css', 
-
-      'typescript', '.ts',
-      // Edge case: `ts` is a valid lang code for `Tsonga`
-      'ts',
-    
-      'node.js', 'node', 
-      'handlebars', '.hbs', 'hbs',
-      'glimmer', 'glimmer.js', 'glimmer-vm',
-    
-      'markdown', 'markup', 'html5', 'html4', 
-      '.md', '.html', '.htm', '.xhtml', '.xml', '.xht',
-       'md',  'html',  'htm',  'xhtml', 
-      // Edge case: `xml` is a valid code for `Malaysian Sign Language`
-      'xml', 
-      // Edge case: `xht` is a valid code for `Hattic`
-      'xht', 
-    
-      'css', '.css', 
-      'scss', '.scss', 
-      'sass', '.sass',
-
       '.sass', '.scss', '.css', 
        'sass',  'scss', 
       // Edge case: `css` is a valid code for `Costanoan`

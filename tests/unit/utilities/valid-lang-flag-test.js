@@ -1,4 +1,4 @@
-'use-strict';
+'use strict';
 
 const getLangArgResult = require('../../../lib/utilities/valid-lang-flag');
 const expect = require('chai').expect;

@@ -143,7 +143,7 @@ module.exports = {
         [options.welcome && '"--welcome"', options.yarn && '"--yarn"'].filter(Boolean).join(',\n            ') +
         outdent;
     }
-    
+
     let lang = options.lang;
 
     return {
@@ -159,8 +159,7 @@ module.exports = {
       blueprint: 'addon',
       blueprintOptions,
 
-      lang
-
+      lang,
     };
   },
 

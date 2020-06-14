@@ -34,8 +34,6 @@ module.exports = {
     }
     let lang = options.lang;
 
-
-
     return {
       name,
       modulePrefix: name,
@@ -45,7 +43,7 @@ module.exports = {
       welcome: options.welcome,
       blueprint: 'app',
       blueprintOptions,
-      
+
       lang,
     };
   },

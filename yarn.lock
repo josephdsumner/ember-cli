@@ -3954,6 +3954,11 @@ is-glob@^4.0.0, is-glob@^4.0.1, is-glob@~4.0.1:
   dependencies:
     is-extglob "^2.1.1"
 
+is-language-code@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/is-language-code/-/is-language-code-1.0.7.tgz#45f10d3536588d45fbc0c36f76e62566310005bb"
+  integrity sha512-fnfsWVx7l4zSmo/WUgLLWVTikpBF2FXnrE2aS4EMemysgWJ7y/qrtcypbAozZYk1OMaV/AvOeIh3QOGpSeNa1g==
+
 is-number@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/is-number/-/is-number-3.0.0.tgz#24fd6201a4782cf50561c810276afc7d12d71195"

@@ -157,6 +157,7 @@ module.exports = {
       blueprint: 'addon',
       blueprintOptions,
       lang: options.lang,
+      embroider: false,
     };
   },
 

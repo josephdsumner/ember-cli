@@ -231,11 +231,10 @@ describe('init command', function () {
   // ember init --lang flag
   // -------------------------------
   // Good: Default
-  it('ember init without --lang flag (default) has no error message before run; blueprint has lang key of empty String', async function () {
+  it('ember init without --lang flag (default) has no error message before run; blueprint does not have lang key', async function () {
     tasks.InstallBlueprint = Task.extend({
       run(blueprintOpts) {
-        expect(blueprintOpts).to.contain.keys('lang');
-        expect(blueprintOpts.lang).to.equal('');
+        expect(blueprintOpts).to.not.contain.keys('lang');
         return Promise.reject('Called run');
       },
     });

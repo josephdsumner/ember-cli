@@ -107,7 +107,7 @@ describe('new command', function () {
     expect(reason).to.equal('Called run');
   });
 
-  // [WIP] ember new --lang flag
+  // ember new --lang flag
   // -------------------------------
   // Good: Default
   it('ember new without --lang flag (default) has no error message before run; blueprint has lang key of empty String', async function () {

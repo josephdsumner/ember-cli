@@ -167,7 +167,7 @@ describe('Acceptance: ember init', function () {
     expect(dir('.git')).to.not.exist;
   });
 
-  // [WIP] ember init --lang flag
+  // ember init --lang flag
   // -------------------------------
   // Good: Default
   it('ember init without --lang flag (default) has no lang attribute in index.html', async function () {

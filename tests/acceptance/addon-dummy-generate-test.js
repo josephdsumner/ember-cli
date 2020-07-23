@@ -241,7 +241,7 @@ describe('Acceptance: ember generate in-addon-dummy', function () {
     expect(file('server/index.js')).to.exist;
   });
 
-  // [WIP] ember addon --lang flag
+  // ember addon --lang flag
   // -------------------------------
   // Good: Default
   it('ember addon without --lang flag (default) has no lang attribute in dummy index.html', async function () {

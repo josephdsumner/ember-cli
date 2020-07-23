@@ -144,8 +144,6 @@ module.exports = {
         outdent;
     }
 
-    let lang = options.lang;
-
     return {
       name,
       modulePrefix: name,
@@ -158,8 +156,7 @@ module.exports = {
       welcome: options.welcome,
       blueprint: 'addon',
       blueprintOptions,
-
-      lang,
+      lang: options.lang,
     };
   },
 

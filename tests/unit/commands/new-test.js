@@ -110,7 +110,7 @@ describe('new command', function () {
   // ember new --lang flag
   // -------------------------------
   // Good: Default
-  it('ember new without --lang flag (default) has no error message before run; blueprint has lang key of empty String', async function () {
+  it('ember new without --lang flag (default) has no error message before run; blueprint does not have lang key', async function () {
     command.tasks.CreateAndStepIntoDirectory = Task.extend({
       run() {
         return Promise.resolve();
@@ -119,7 +119,7 @@ describe('new command', function () {
     command.commands.Init = Command.extend({
       run(commandOptions) {
         expect(commandOptions).to.contain.keys('lang');
-        expect(commandOptions.lang).to.equal('');
+        expect(commandOptions.lang).to.equal(undefined);
         return Promise.resolve('Called run');
       },
     });

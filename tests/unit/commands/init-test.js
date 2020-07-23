@@ -228,7 +228,7 @@ describe('init command', function () {
     });
   });
 
-  // [WIP] ember init --lang flag
+  // ember init --lang flag
   // -------------------------------
   // Good: Default
   it('ember init without --lang flag (default) has no error message before run; blueprint has lang key of empty String', async function () {

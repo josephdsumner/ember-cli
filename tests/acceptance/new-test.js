@@ -104,12 +104,6 @@ describe('Acceptance: ember new', function () {
 
   // ember new --lang flag
   // -------------------------------
-  // Good: Default
-  it('ember new without --lang flag (default) has no lang attribute in index.html', async function () {
-    await ember(['new', 'foo', '--skip-npm', '--skip-bower', '--skip-git']);
-    expect(file('app/index.html')).to.contain('<html>');
-  });
-
   // Good: Correct Usage
   it('ember new with --lang flag and valid code assigns lang attribute in index.html', async function () {
     await ember(['new', 'foo', '--skip-npm', '--skip-bower', '--skip-git', '--lang=en-US']);
@@ -508,6 +502,9 @@ describe('Acceptance: ember new', function () {
 
       // option independent, but piggy-backing on an existing generate for speed
       checkEslintConfig(namespace);
+
+      // ember new without --lang flag (default) has no lang attribute in index.html
+      expect(file('app/index.html')).to.contain('<html>');
     });
 
     it('addon defaults', async function () {

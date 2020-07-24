@@ -555,6 +555,9 @@ describe('Acceptance: ember new', function () {
 
       // option independent, but piggy-backing on an existing generate for speed
       checkEslintConfig(namespace);
+
+      // ember addon without --lang flag (default) has no lang attribute in dummy index.html
+      expect(file('tests/dummy/app/index.html')).to.contain('<html>');
     });
 
     it('app + npm + !welcome', async function () {

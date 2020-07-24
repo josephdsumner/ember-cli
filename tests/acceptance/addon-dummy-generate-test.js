@@ -243,12 +243,6 @@ describe('Acceptance: ember generate in-addon-dummy', function () {
 
   // ember addon --lang flag
   // -------------------------------
-  // Good: Default
-  it('ember addon without --lang flag (default) has no lang attribute in dummy index.html', async function () {
-    await ember(['addon', 'foo', '--skip-npm', '--skip-bower', '--skip-git']);
-    expect(file('tests/dummy/app/index.html')).to.contain('<html>');
-  });
-
   // Good: Correct Usage
   it('ember addon with --lang flag and valid code assigns lang attribute in index.html', async function () {
     await ember(['addon', 'foo', '--skip-npm', '--skip-bower', '--skip-git', '--lang=en-US']);

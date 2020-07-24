@@ -102,7 +102,7 @@ describe('Acceptance: ember new', function () {
     expect(file('app/templates/application.hbs')).to.contain('Welcome to Ember');
   });
 
-  // [WIP] ember new --lang flag
+  // ember new --lang flag
   // -------------------------------
   // Good: Default
   it('ember new without --lang flag (default) has no lang attribute in index.html', async function () {

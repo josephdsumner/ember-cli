@@ -1,6 +1,7 @@
 'use strict';
 
 const getLangArgResult = require('../../../lib/utilities/valid-lang-flag');
+const SilentError = require('silent-error');
 const expect = require('chai').expect;
 
 describe('lib/utilities/valid-lang-flag', function () {
@@ -14,21 +15,27 @@ describe('lib/utilities/valid-lang-flag', function () {
     });
   });
 
-  // describe('Invalid lang Flags: Misc.', function () {
-  //   ['', '..-..', '12-34', ' en', 'en ', 'en-uk', 'en-UK', 'EN-uk', 'EN-UK', 'en-cockney'].forEach((langArg) => {
-  //     it(`'${langArg}' is an invalid language argument; not related misuse cases`, function () {
-  //       expect(getLangArgResult(langArg).isValidLangCode).to.not.be.ok;
-  //       expect(getLangArgResult(langArg).message).to.be.ok;
-  //       expect(getLangArgResult(langArg).message).to.include(
-  //         'An error with the `--lang` flag returned the following message:'
-  //       );
-  //       expect(getLangArgResult(langArg).message).to.include('Information about using the `--lang` flag:');
-  //       expect(getLangArgResult(langArg).message).to.not.include('set the app programming language');
-  //       expect(getLangArgResult(langArg).message).to.not.include('ember-cli command option');
-  //       expect(getLangArgResult(langArg).result).to.be.false;
-  //     });
-  //   });
-  // });
+  describe('Invalid lang Flags: Misc.', function () {
+    ['', '..-..', '12-34', ' en', 'en ', 'en-uk', 'en-UK', 'EN-uk', 'EN-UK', 'en-cockney'].forEach((langArg) => {
+      it(`'${langArg}' is an invalid language argument; not related misuse cases`, function () {
+        expect(() => {
+          getLangArgResult(langArg);
+        }).to.throw(SilentError);
+        expect(() => {
+          getLangArgResult(langArg);
+        }).to.throw('An error with the `--lang` flag returned the following message:');
+        expect(() => {
+          getLangArgResult(langArg);
+        }).to.throw('Information about using the `--lang` flag:');
+        expect(() => {
+          getLangArgResult(langArg);
+        }).to.not.throw('set the app programming language');
+        expect(() => {
+          getLangArgResult(langArg);
+        }).to.not.throw('ember-cli command option');
+      });
+    });
+  });
 
   // describe('Invalid Language Flags, Misuse case: Programming Languages', function () {
   //   [

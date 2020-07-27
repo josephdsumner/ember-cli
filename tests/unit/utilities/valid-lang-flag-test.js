@@ -136,39 +136,46 @@ describe('lib/utilities/valid-lang-flag', function () {
     });
   });
 
-  // describe('Invalid Language Flags, Misuse case: ember-cli `new` and `init` options / aliases', function () {
-  //   [
-  //     '--disable-analytics',
-  //     '--watcher=node',
-  //     '--dry-run',
-  //     '-d',
-  //     '--verbose',
-  //     '-v',
-  //     '--blueprint',
-  //     '-b',
-  //     '--skip-npm',
-  //     '-sn',
-  //     '--skip-bower',
-  //     '-sb',
-  //     '--welcome',
-  //     '--no-welcome',
-  //     '--yarn',
-  //     '--name',
-  //     '--skip-git',
-  //     '-sg',
-  //     '--directory',
-  //     '-dir',
-  //   ].forEach((langArg) => {
-  //     it(`'${langArg}' is an invalid language argument; possibly an absorbed ember-cli command option`, function () {
-  //       expect(getLangArgResult(langArg).isValidLangCode).to.not.be.ok;
-  //       expect(getLangArgResult(langArg).message).to.be.ok;
-  //       expect(getLangArgResult(langArg).message).to.include(
-  //         'An error with the `--lang` flag returned the following message:'
-  //       );
-  //       expect(getLangArgResult(langArg).message).to.include('Information about using the `--lang` flag:');
-  //       expect(getLangArgResult(langArg).message).to.include('ember-cli command option');
-  //       expect(getLangArgResult(langArg).result).to.be.false;
-  //     });
-  //   });
-  // });
+  describe('Invalid Language Flags, Misuse case: ember-cli `new` and `init` options / aliases', function () {
+    [
+      '--disable-analytics',
+      '--watcher=node',
+      '--dry-run',
+      '-d',
+      '--verbose',
+      '-v',
+      '--blueprint',
+      '-b',
+      '--skip-npm',
+      '-sn',
+      '--skip-bower',
+      '-sb',
+      '--welcome',
+      '--no-welcome',
+      '--yarn',
+      '--name',
+      '--skip-git',
+      '-sg',
+      '--directory',
+      '-dir',
+    ].forEach((langArg) => {
+      it(`'${langArg}' is an invalid language argument; possibly an absorbed ember-cli command option`, function () {
+        expect(() => {
+          getLangArgResult(langArg);
+        }).to.throw(SilentError);
+        expect(() => {
+          getLangArgResult(langArg);
+        }).to.throw('An error with the `--lang` flag returned the following message:');
+        expect(() => {
+          getLangArgResult(langArg);
+        }).to.throw('Information about using the `--lang` flag:');
+        expect(() => {
+          getLangArgResult(langArg);
+        }).to.not.throw('set the app programming language');
+        expect(() => {
+          getLangArgResult(langArg);
+        }).to.throw('ember-cli command option');
+      });
+    });
+  });
 });

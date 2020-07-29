@@ -73,7 +73,7 @@ module.exports = {
         {
           name: 'lang',
           key: 'lang',
-          description: 'Sets the base human language of the dummy application via index.html',
+          description: "Sets the base human language of the addon's own test application via index.html",
           aliases: ['l'],
           required: false
         }

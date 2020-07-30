@@ -1,16 +1,33 @@
 'use strict';
 
 const getLangArgResult = require('../../../lib/utilities/valid-lang-flag');
-const SilentError = require('silent-error');
 const expect = require('chai').expect;
 
 describe('lib/utilities/valid-lang-flag', function () {
-  describe('Valid lang Flags', function () {
+  describe('Valid language codes', function () {
     ['en', 'en-gb', 'en-GB', 'EN', 'EN-gb', 'EN-GB'].forEach((langArg) => {
-      it(`'${langArg}' is a valid language code; message is null`, function () {
-        expect(getLangArgResult(langArg).isValidLangCode).to.be.ok;
-        expect(getLangArgResult(langArg).message).to.be.null;
-        expect(getLangArgResult(langArg).result).to.equal(langArg);
+      it(`'${langArg}' is a valid language code`, function () {
+        expect(() => {
+          getLangArgResult(langArg);
+        }).not.to.throw();
+        expect(getLangArgResult(langArg)).to.equal(langArg);
+      });
+    });
+  });
+
+  describe('Edge Cases: valid language codes + programming languages', function () {
+    [
+      'ts', // Tsonga
+      'TS', // Tsonga (case insensitivity check)
+      'xml', // Malaysian Sign Language
+      'xht', // Hattic
+      'css', // Costanoan
+    ].forEach((langArg) => {
+      it(`'${langArg}' is a valid language code and programming language`, function () {
+        expect(() => {
+          getLangArgResult(langArg);
+        }).not.to.throw();
+        expect(getLangArgResult(langArg)).to.equal(langArg);
       });
     });
   });
@@ -20,19 +37,8 @@ describe('lib/utilities/valid-lang-flag', function () {
       it(`'${langArg}' is an invalid language argument; not related misuse cases`, function () {
         expect(() => {
           getLangArgResult(langArg);
-        }).to.throw(SilentError);
-        expect(() => {
-          getLangArgResult(langArg);
-        }).to.throw('An error with the `--lang` flag returned the following message:');
-        expect(() => {
-          getLangArgResult(langArg);
-        }).to.throw('Information about using the `--lang` flag:');
-        expect(() => {
-          getLangArgResult(langArg);
-        }).to.not.throw('set the app programming language');
-        expect(() => {
-          getLangArgResult(langArg);
-        }).to.not.throw('ember-cli command option');
+        }).not.to.throw();
+        expect(getLangArgResult(langArg)).to.equal(undefined);
       });
     });
   });
@@ -60,8 +66,6 @@ describe('lib/utilities/valid-lang-flag', function () {
 
       'typescript',
       '.ts',
-      // Edge case: `ts` is a valid lang code for `Tsonga`
-      'ts',
 
       'node.js',
       'node',
@@ -86,18 +90,12 @@ describe('lib/utilities/valid-lang-flag', function () {
       'html',
       'htm',
       'xhtml',
-      // Edge case: `xml` is a valid code for `Malaysian Sign Language`
-      'xml',
-      // Edge case: `xht` is a valid code for `Hattic`
-      'xht',
 
       '.sass',
       '.scss',
       '.css',
       'sass',
       'scss',
-      // Edge case: `css` is a valid code for `Costanoan`
-      'css',
 
       // + case-insensitivity
       'JavaScript',
@@ -109,29 +107,14 @@ describe('lib/utilities/valid-lang-flag', function () {
       'ES6',
       'TypeScript',
       'TYPESCRIPT',
-      'TS',
+
       '.TS',
     ].forEach((langArg) => {
       it(`'${langArg}' is an invalid lang argument; possibly an attempt to set app programming language`, function () {
         expect(() => {
           getLangArgResult(langArg);
-        }).to.throw(SilentError);
-        expect(() => {
-          getLangArgResult(langArg);
-        }).to.throw('An error with the `--lang` flag returned the following message:');
-        expect(() => {
-          getLangArgResult(langArg);
-        }).to.throw('Information about using the `--lang` flag:');
-        expect(() => {
-          getLangArgResult(langArg);
-        }).to.throw('set the app programming language');
-        expect(() => {
-          getLangArgResult(langArg);
-        }).to.not.throw('ember-cli command option');
-        // Run this/similar before commiting updates to programming languages list
-        // defined in the utility in order to identify edge cases
-        // Comment out during normal operation.
-        // expect(getLangArgResult(langArg).isValidLangCode).to.be.false;
+        }).not.to.throw();
+        expect(getLangArgResult(langArg)).to.equal(undefined);
       });
     });
   });
@@ -162,19 +145,8 @@ describe('lib/utilities/valid-lang-flag', function () {
       it(`'${langArg}' is an invalid language argument; possibly an absorbed ember-cli command option`, function () {
         expect(() => {
           getLangArgResult(langArg);
-        }).to.throw(SilentError);
-        expect(() => {
-          getLangArgResult(langArg);
-        }).to.throw('An error with the `--lang` flag returned the following message:');
-        expect(() => {
-          getLangArgResult(langArg);
-        }).to.throw('Information about using the `--lang` flag:');
-        expect(() => {
-          getLangArgResult(langArg);
-        }).to.not.throw('set the app programming language');
-        expect(() => {
-          getLangArgResult(langArg);
-        }).to.throw('ember-cli command option');
+        }).not.to.throw();
+        expect(getLangArgResult(langArg)).to.equal(undefined);
       });
     });
   });

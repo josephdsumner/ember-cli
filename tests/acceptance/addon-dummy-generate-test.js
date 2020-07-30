@@ -241,36 +241,41 @@ describe('Acceptance: ember generate in-addon-dummy', function () {
     expect(file('server/index.js')).to.exist;
   });
 
-  // ember addon --lang flag
+  // ember addon foo --lang
   // -------------------------------
   // Good: Correct Usage
-  it('ember addon with --lang flag and valid code assigns lang attribute in index.html', async function () {
+  it('ember addon foo --lang=(valid code): no message + set `lang` in index.html', async function () {
     await ember(['addon', 'foo', '--skip-npm', '--skip-bower', '--skip-git', '--lang=en-US']);
     expect(file('tests/dummy/app/index.html')).to.contain('<html lang="en-US">');
   });
 
+  // Edge Case: both valid code AND programming language abbreviation, possible misuse
+  it('ember addon foo --lang=(valid code + programming language abbreviation): emit warning + set `lang` in index.html', async function () {
+    await ember(['addon', 'foo', '--skip-npm', '--skip-bower', '--skip-git', '--lang=css']);
+    expect(file('tests/dummy/app/index.html')).to.contain('<html lang="css">');
+  });
+
   // Misuse: possibly an attempt to set app programming language
-  it('ember addon with --lang flag and programming language fails with an error message', async function () {
-    let err = await expect(ember(['addon', 'foo', '--skip-npm', '--skip-bower', '--skip-git', '--lang=typescript'])).to
-      .be.rejected;
-    expect(err.name).to.equal('SilentError');
-    expect(err.message).to.be.ok;
-    expect(err.message).to.include('An error with the `--lang` flag returned the following message:');
-    expect(err.message).to.include('Information about using the `--lang` flag:');
-    expect(err.message).to.include('set the app programming language');
-    expect(err.message).to.include('typescript');
-    expect(err.message).to.not.include('ember-cli command option');
+  it('ember addon foo --lang=(programming language): emit warning + do not set `lang` in index.html', async function () {
+    await ember(['addon', 'foo', '--skip-npm', '--skip-bower', '--skip-git', '--lang=JavaScript']);
+    expect(file('tests/dummy/app/index.html')).to.contain('<html>');
+  });
+
+  // Misuse: possibly an attempt to set app programming language
+  it('ember addon foo --lang=(programming language abbreviation): emit warning + do not set `lang` in index.html', async function () {
+    await ember(['addon', 'foo', '--skip-npm', '--skip-bower', '--skip-git', '--lang=JS']);
+    expect(file('tests/dummy/app/index.html')).to.contain('<html>');
+  });
+
+  // Misuse: possibly an attempt to set app programming language
+  it('ember addon foo --lang=(programming language file extension): emit warning + do not set `lang` in index.html', async function () {
+    await ember(['addon', 'foo', '--skip-npm', '--skip-bower', '--skip-git', '--lang=.js']);
+    expect(file('tests/dummy/app/index.html')).to.contain('<html>');
   });
 
   // Misuse: Invalid Country Code
-  it('ember addon with --lang flag and invalid code fails with an error message', async function () {
-    let err = await expect(ember(['addon', 'foo', '--skip-npm', '--skip-bower', '--skip-git', '--lang=en-UK'])).to.be
-      .rejected;
-    expect(err.name).to.equal('SilentError');
-    expect(err.message).to.be.ok;
-    expect(err.message).to.include('An error with the `--lang` flag returned the following message:');
-    expect(err.message).to.include('Information about using the `--lang` flag:');
-    expect(err.message).to.not.include('set the app programming language');
-    expect(err.message).to.not.include('ember-cli command option');
+  it('ember addon foo --lang=(invalid code): emit warning + do not set `lang` in index.html', async function () {
+    await ember(['addon', 'foo', '--skip-npm', '--skip-bower', '--skip-git', '--lang=en-UK']);
+    expect(file('tests/dummy/app/index.html')).to.contain('<html>');
   });
 });

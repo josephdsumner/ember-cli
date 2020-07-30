@@ -179,3 +179,52 @@ describe('lib/utilities/valid-lang-flag', function () {
     });
   });
 });
+
+describe('Valid Language Flags, edge cases: Programming Languages', function () {
+  [
+    // Edge case: `ts` is a valid lang code for `Tsonga`
+    'ts',
+    // Edge case: `xml` is a valid code for `Malaysian Sign Language`
+    'xml',
+    // Edge case: `xht` is a valid code for `Hattic`
+    'xht',
+    // Edge case: `css` is a valid code for `Costanoan`
+    'css',
+
+    // + case-insensitivity
+    'TS',
+  ].forEach((langArg) => {
+    it(`'${langArg}' is a valid lang argument; possibly an attempt to set app programming language`, function () {
+      expect(() => {
+        getLangArgResult(langArg);
+      }).to.throw(SilentError);
+      expect(() => {
+        getLangArgResult(langArg);
+      }).to.throw('An error with the `--lang` flag returned the following message:');
+      expect(() => {
+        getLangArgResult(langArg);
+      }).to.throw('Information about using the `--lang` flag:');
+      expect(() => {
+        getLangArgResult(langArg);
+      }).to.throw('set the app programming language');
+      expect(() => {
+        getLangArgResult(langArg);
+      }).to.not.throw('ember-cli command option');
+      expect(() => {
+        getLangArgResult(langArg);
+      }).to.throw('The `--lang` flag has been used with argument ');
+      expect(() => {
+        getLangArgResult(langArg);
+      }).to.throw('which is BOTH a valid language code AND an abbreviation for a programming language.');
+      expect(() => {
+        getLangArgResult(langArg);
+      }).to.throw('The human language of this application will be set to');
+      expect(() => {
+        getLangArgResult(langArg);
+      }).to.throw("the `<html>` element's `lang` attribute in `app/index.html`.");
+      expect(() => {
+        getLangArgResult(langArg);
+      }).to.throw('If this was not your intention, you may edit the value in that file directly.');
+    });
+  });
+});

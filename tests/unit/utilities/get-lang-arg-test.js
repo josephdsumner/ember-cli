@@ -63,10 +63,8 @@ describe('lib/utilities/get-lang-arg', function () {
       'emcascript2019',
       'emcascript10',
       'es10',
-
       'typescript',
       '.ts',
-
       'node.js',
       'node',
       'handlebars',
@@ -75,7 +73,6 @@ describe('lib/utilities/get-lang-arg', function () {
       'glimmer',
       'glimmer.js',
       'glimmer-vm',
-
       'markdown',
       'markup',
       'html5',
@@ -90,7 +87,6 @@ describe('lib/utilities/get-lang-arg', function () {
       'html',
       'htm',
       'xhtml',
-
       '.sass',
       '.scss',
       '.css',
@@ -107,7 +103,6 @@ describe('lib/utilities/get-lang-arg', function () {
       'ES6',
       'TypeScript',
       'TYPESCRIPT',
-
       '.TS',
     ].forEach((langArg) => {
       it(`'${langArg}' is an invalid lang argument; possibly an attempt to set app programming language`, function () {

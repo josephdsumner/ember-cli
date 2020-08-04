@@ -1,16 +1,16 @@
 'use strict';
 
-const getLangArgResult = require('../../../lib/utilities/valid-lang-flag');
+const getLangArg = require('../../../lib/utilities/get-lang-arg');
 const expect = require('chai').expect;
 
-describe('lib/utilities/valid-lang-flag', function () {
+describe('lib/utilities/get-lang-arg', function () {
   describe('Valid language codes', function () {
     ['en', 'en-gb', 'en-GB', 'EN', 'EN-gb', 'EN-GB'].forEach((langArg) => {
       it(`'${langArg}' is a valid language code`, function () {
         expect(() => {
-          getLangArgResult(langArg);
+          getLangArg(langArg);
         }).not.to.throw();
-        expect(getLangArgResult(langArg)).to.equal(langArg);
+        expect(getLangArg(langArg)).to.equal(langArg);
       });
     });
   });
@@ -25,9 +25,9 @@ describe('lib/utilities/valid-lang-flag', function () {
     ].forEach((langArg) => {
       it(`'${langArg}' is a valid language code and programming language`, function () {
         expect(() => {
-          getLangArgResult(langArg);
+          getLangArg(langArg);
         }).not.to.throw();
-        expect(getLangArgResult(langArg)).to.equal(langArg);
+        expect(getLangArg(langArg)).to.equal(langArg);
       });
     });
   });
@@ -36,9 +36,9 @@ describe('lib/utilities/valid-lang-flag', function () {
     ['', '..-..', '12-34', ' en', 'en ', 'en-uk', 'en-UK', 'EN-uk', 'EN-UK', 'en-cockney'].forEach((langArg) => {
       it(`'${langArg}' is an invalid language argument; not related misuse cases`, function () {
         expect(() => {
-          getLangArgResult(langArg);
+          getLangArg(langArg);
         }).not.to.throw();
-        expect(getLangArgResult(langArg)).to.equal(undefined);
+        expect(getLangArg(langArg)).to.equal(undefined);
       });
     });
   });
@@ -112,9 +112,9 @@ describe('lib/utilities/valid-lang-flag', function () {
     ].forEach((langArg) => {
       it(`'${langArg}' is an invalid lang argument; possibly an attempt to set app programming language`, function () {
         expect(() => {
-          getLangArgResult(langArg);
+          getLangArg(langArg);
         }).not.to.throw();
-        expect(getLangArgResult(langArg)).to.equal(undefined);
+        expect(getLangArg(langArg)).to.equal(undefined);
       });
     });
   });
@@ -144,9 +144,9 @@ describe('lib/utilities/valid-lang-flag', function () {
     ].forEach((langArg) => {
       it(`'${langArg}' is an invalid language argument; possibly an absorbed ember-cli command option`, function () {
         expect(() => {
-          getLangArgResult(langArg);
+          getLangArg(langArg);
         }).not.to.throw();
-        expect(getLangArgResult(langArg)).to.equal(undefined);
+        expect(getLangArg(langArg)).to.equal(undefined);
       });
     });
   });

@@ -2,15 +2,47 @@
 
 const getLangArg = require('../../../lib/utilities/get-lang-arg');
 const expect = require('chai').expect;
+const MockUI = require('console-ui/mock');
 
 describe('lib/utilities/get-lang-arg', function () {
+  let ui;
+  let msgRef = {
+    severity: 'WARNING',
+    head: 'An issue with the `--lang` flag returned the following message:',
+    help: {
+      edit: 'If this was not your intention, you may edit the `<html>` element',
+      info: {
+        head: 'Information about using the `--lang` flag:',
+        desc: 'The `--lang` flag sets the base human language of an app or test app:',
+        usage: 'If used, the lang option must specfify a valid language code.',
+        default: 'For default behavior, remove the flag',
+        more: 'See `ember <command> help` for more information.',
+      },
+    },
+    body: {
+      valid: '',
+      validAndProg: 'which is BOTH a valid language code AND an abbreviation for a programming language',
+      prog: 'Trying to set the app programming language to ',
+      cliOpt: 'Detected a `--lang` specification starting with command flag `-`',
+    },
+    status: {
+      willSet: 'The human language of the application will be set to',
+      willNotSet: 'The human language of the application will NOT be set',
+    },
+  };
+
+  beforeEach(function () {
+    ui = new MockUI();
+  });
+
   describe('Valid language codes', function () {
     ['en', 'en-gb', 'en-GB', 'EN', 'EN-gb', 'EN-GB'].forEach((langArg) => {
       it(`'${langArg}' is a valid language code`, function () {
         expect(() => {
-          getLangArg(langArg);
+          getLangArg(langArg, ui);
         }).not.to.throw();
-        expect(getLangArg(langArg)).to.equal(langArg);
+        expect(getLangArg(langArg, ui)).to.equal(langArg);
+        expect(ui.output).to.equal(msgRef.body.valid);
       });
     });
   });
@@ -25,9 +57,21 @@ describe('lib/utilities/get-lang-arg', function () {
     ].forEach((langArg) => {
       it(`'${langArg}' is a valid language code and programming language`, function () {
         expect(() => {
-          getLangArg(langArg);
+          getLangArg(langArg, ui);
         }).not.to.throw();
-        expect(getLangArg(langArg)).to.equal(langArg);
+        expect(getLangArg(langArg, ui)).to.equal(langArg);
+        expect(ui.output).to.contain(msgRef.severity);
+        expect(ui.output).to.contain(msgRef.head);
+        expect(ui.output).to.contain(msgRef.help.edit);
+        expect(ui.output).to.contain(msgRef.help.info.head);
+        expect(ui.output).to.contain(msgRef.help.info.desc);
+        expect(ui.output).to.contain(msgRef.help.info.usage);
+        expect(ui.output).to.contain(msgRef.help.info.default);
+        expect(ui.output).to.contain(msgRef.help.info.more);
+        expect(ui.output).to.contain(msgRef.status.willSet);
+        expect(ui.output).to.contain(msgRef.body.validAndProg);
+        expect(ui.output).to.contain(msgRef.body.prog);
+        expect(ui.output).to.not.contain(msgRef.body.cliOpt);
       });
     });
   });
@@ -36,9 +80,21 @@ describe('lib/utilities/get-lang-arg', function () {
     ['', '..-..', '12-34', ' en', 'en ', 'en-uk', 'en-UK', 'EN-uk', 'EN-UK', 'en-cockney'].forEach((langArg) => {
       it(`'${langArg}' is an invalid language argument; not related misuse cases`, function () {
         expect(() => {
-          getLangArg(langArg);
+          getLangArg(langArg, ui);
         }).not.to.throw();
-        expect(getLangArg(langArg)).to.equal(undefined);
+        expect(getLangArg(langArg, ui)).to.equal(undefined);
+        expect(ui.output).to.contain(msgRef.severity);
+        expect(ui.output).to.contain(msgRef.head);
+        expect(ui.output).to.contain(msgRef.help.edit);
+        expect(ui.output).to.contain(msgRef.help.info.head);
+        expect(ui.output).to.contain(msgRef.help.info.desc);
+        expect(ui.output).to.contain(msgRef.help.info.usage);
+        expect(ui.output).to.contain(msgRef.help.info.default);
+        expect(ui.output).to.contain(msgRef.help.info.more);
+        expect(ui.output).to.contain(msgRef.status.willNotSet);
+        expect(ui.output).to.not.contain(msgRef.body.validAndProg);
+        expect(ui.output).to.not.contain(msgRef.body.prog);
+        expect(ui.output).to.not.contain(msgRef.body.cliOpt);
       });
     });
   });
@@ -107,9 +163,21 @@ describe('lib/utilities/get-lang-arg', function () {
     ].forEach((langArg) => {
       it(`'${langArg}' is an invalid lang argument; possibly an attempt to set app programming language`, function () {
         expect(() => {
-          getLangArg(langArg);
+          getLangArg(langArg, ui);
         }).not.to.throw();
-        expect(getLangArg(langArg)).to.equal(undefined);
+        expect(getLangArg(langArg, ui)).to.equal(undefined);
+        expect(ui.output).to.contain(msgRef.severity);
+        expect(ui.output).to.contain(msgRef.head);
+        expect(ui.output).to.contain(msgRef.help.edit);
+        expect(ui.output).to.contain(msgRef.help.info.head);
+        expect(ui.output).to.contain(msgRef.help.info.desc);
+        expect(ui.output).to.contain(msgRef.help.info.usage);
+        expect(ui.output).to.contain(msgRef.help.info.default);
+        expect(ui.output).to.contain(msgRef.help.info.more);
+        expect(ui.output).to.contain(msgRef.status.willNotSet);
+        expect(ui.output).to.not.contain(msgRef.body.validAndProg);
+        expect(ui.output).to.contain(msgRef.body.prog);
+        expect(ui.output).to.not.contain(msgRef.body.cliOpt);
       });
     });
   });
@@ -139,9 +207,22 @@ describe('lib/utilities/get-lang-arg', function () {
     ].forEach((langArg) => {
       it(`'${langArg}' is an invalid language argument; possibly an absorbed ember-cli command option`, function () {
         expect(() => {
-          getLangArg(langArg);
+          getLangArg(langArg, ui);
         }).not.to.throw();
-        expect(getLangArg(langArg)).to.equal(undefined);
+        expect(getLangArg(langArg, ui)).to.equal(undefined);
+        expect(getLangArg(langArg, ui)).to.equal(undefined);
+        expect(ui.output).to.contain(msgRef.severity);
+        expect(ui.output).to.contain(msgRef.head);
+        expect(ui.output).to.contain(msgRef.help.edit);
+        expect(ui.output).to.contain(msgRef.help.info.head);
+        expect(ui.output).to.contain(msgRef.help.info.desc);
+        expect(ui.output).to.contain(msgRef.help.info.usage);
+        expect(ui.output).to.contain(msgRef.help.info.default);
+        expect(ui.output).to.contain(msgRef.help.info.more);
+        expect(ui.output).to.contain(msgRef.status.willNotSet);
+        expect(ui.output).to.not.contain(msgRef.body.validAndProg);
+        expect(ui.output).to.not.contain(msgRef.body.prog);
+        expect(ui.output).to.contain(msgRef.body.cliOpt);
       });
     });
   });
